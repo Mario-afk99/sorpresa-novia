@@ -169,18 +169,7 @@ h1 {
   justify-content: center;
   align-items: center;
   max-height: 500px;
-  animation: zoom-in 2s ease-out;
-}
-
-@keyframes zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  perspective: 1000px;
 }
 
 .foto-contenedor img {
@@ -190,26 +179,229 @@ h1 {
   border: 3px solid #ff1493;
   box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
   object-fit: cover;
+  animation: rotarEntrada 1.2s ease-out;
 }
 
-.frase {
-  font-size: 26px;
-  color: #ffb6c1;
-  line-height: 1.8;
-  font-style: italic;
-  animation: fade-in 3s ease-out;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes fade-in {
+@keyframes rotarEntrada {
   from {
     opacity: 0;
+    transform: rotateY(90deg) rotateX(20deg) scale(0.8);
   }
   to {
     opacity: 1;
+    transform: rotateY(0deg) rotateX(0deg) scale(1);
+  }
+}
+
+/* Animaciones alternativas para fotos */
+.foto-contenedor img:nth-child(1) {
+  animation: deslizarDerecha 1s ease-out;
+}
+
+.pagina-libro:nth-child(2) .foto-contenedor img {
+  animation: deslizarIzquierda 1s ease-out;
+}
+
+.pagina-libro:nth-child(3) .foto-contenedor img {
+  animation: rebote 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.pagina-libro:nth-child(4) .foto-contenedor img {
+  animation: zoom 1s ease-out;
+}
+
+.pagina-libro:nth-child(5) .foto-contenedor img {
+  animation: volteo 1.3s ease-out;
+}
+
+.pagina-libro:nth-child(6) .foto-contenedor img {
+  animation: aparicionSuave 1.5s ease-out;
+}
+
+.pagina-libro:nth-child(7) .foto-contenedor img {
+  animation: deslizarArriba 1s ease-out;
+}
+
+.pagina-libro:nth-child(8) .foto-contenedor img {
+  animation: rotarEntrada 1.2s ease-out;
+}
+
+.pagina-libro:nth-child(9) .foto-contenedor img {
+  animation: ondular 1.5s ease-out;
+}
+
+.pagina-libro:nth-child(10) .foto-contenedor img {
+  animation: flotar 2s ease-out;
+}
+
+.pagina-libro:nth-child(11) .foto-contenedor img {
+  animation: pulso 1s ease-out;
+}
+
+@keyframes deslizarDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) rotateZ(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateZ(0deg);
+  }
+}
+
+@keyframes deslizarIzquierda {
+  from {
+    opacity: 0;
+    transform: translateX(100px) rotateZ(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateZ(0deg);
+  }
+}
+
+@keyframes rebote {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotateZ(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateZ(0deg);
+  }
+}
+
+@keyframes volteo {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes aparicionSuave {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes deslizarArriba {
+  from {
+    opacity: 0;
+    transform: translateY(100px) rotateZ(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+@keyframes ondular {
+  0% {
+    opacity: 0;
+    transform: skewY(5deg) translateX(-30px);
+  }
+  50% {
+    transform: skewY(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: skewY(0) translateX(0);
+  }
+}
+
+@keyframes flotar {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-5px);
+    animation-name: flotarContinuo;
+  }
+}
+
+@keyframes flotarContinuo {
+  0%, 100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes pulso {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilos para las frases */
+.frases-contenedor {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.frase-principal {
+  font-size: 28px;
+  color: #ffb6c1;
+  line-height: 1.8;
+  font-style: italic;
+  animation: escribir 3s ease-out;
+  min-height: 70px;
+}
+
+.frase-secundaria {
+  font-size: 22px;
+  color: #ff69b4;
+  font-weight: bold;
+  animation: escribir 3.5s ease-out;
+  opacity: 0.9;
+}
+
+@keyframes escribir {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -262,6 +454,54 @@ button:active {
   border: 2px solid #ff1493;
   z-index: 200;
   box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+}
+
+/* Página de introducción */
+#pagina-intro {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  background: rgba(20, 20, 30, 0.95);
+  border-radius: 15px;
+  padding: 80px 60px;
+  text-align: center;
+  border: 2px solid #ff1493;
+  box-shadow: 0 0 60px rgba(255, 20, 147, 0.5), inset 0 0 40px rgba(255, 20, 147, 0.1);
+  z-index: 101;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-titulo {
+  font-size: 52px;
+  color: #ff1493;
+  margin-bottom: 40px;
+  animation: brillar 2s ease-in-out infinite;
+}
+
+.intro-texto {
+  font-size: 24px;
+  color: #ffb6c1;
+  line-height: 2;
+  margin-bottom: 60px;
+  min-height: 200px;
+  font-weight: 300;
+}
+
+.intro-firma {
+  font-size: 28px;
+  color: #ff69b4;
+  font-style: italic;
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 .pagina-final {
@@ -318,6 +558,35 @@ button:active {
   font-size: 24px;
 }
 
+/* Corazones flotantes especiales */
+.corazon-especial {
+  position: fixed;
+  font-size: 40px;
+  pointer-events: none;
+  animation: flotarCorazon 4s ease-in forwards;
+  z-index: 50;
+}
+
+@keyframes flotarCorazon {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) translateX(var(--tx));
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 </style>
 
 </head>
@@ -342,14 +611,22 @@ button:active {
 
 <!-- Contenedor del libro -->
 <div id="contenedor-libro">
+  
+  <!-- Página de Introducción -->
+  <div id="pagina-intro">
+    <div class="intro-titulo">💌 Una Carta Para Ti 💌</div>
+    <div class="intro-texto" id="intro-dinamico"></div>
+    <div class="intro-firma">Con todo mi amor,<br>Tu Mario ❤️</div>
+  </div>
+
   <!-- Página 1: Foto 1 -->
   <div class="pagina-libro pagina-foto">
     <div class="foto-contenedor">
       <img src="IMG-20250405-WA0028.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Desde el primer momento que te ví,<br>
-      supe que eras mi amor, mi vida, mi preciosa.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Desde el primer momento que te ví,<br>supe que eras mi amor, mi vida, mi preciosa.</div>
+      <div class="frase-secundaria">Te amo infinitamente 💕</div>
     </div>
   </div>
 
@@ -358,9 +635,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250412-WA0011.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Cada día contigo es un regalo especial.<br>
-      Te amo mi amor, te amo con todo mi corazón.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Cada día contigo es un regalo especial,<br>cada sonrisa tuya ilumina mi mundo.</div>
+      <div class="frase-secundaria">Eres mi hermosa, mi niña bonita 🌹</div>
     </div>
   </div>
 
@@ -369,9 +646,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250520-WA0007.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Mi hermosa, mi niña...<br>
-      Eres lo mejor que me ha pasado en la vida.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Mi hermosa, mi niña...<br>Eres lo mejor que me ha pasado en la vida.</div>
+      <div class="frase-secundaria">Me encantas preciosa 💖</div>
     </div>
   </div>
 
@@ -380,9 +657,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250720-WA0030.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Juntos hemos vivido momentos inolvidables.<br>
-      Me encantas preciosa, cada parte de ti.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Juntos hemos vivido momentos inolvidables,<br>cada recuerdo tuyo está grabado en mi corazón.</div>
+      <div class="frase-secundaria">Te quiero con toda mi alma 💗</div>
     </div>
   </div>
 
@@ -391,9 +668,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250725-WA0026.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Tu sonrisa es mi debilidad,<br>
-      tu amor es mi fortaleza, mi todo.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Tu sonrisa es mi debilidad,<br>tu amor es mi fortaleza, mi todo.</div>
+      <div class="frase-secundaria">Eres mi razón de sonreír todos los días 🥰</div>
     </div>
   </div>
 
@@ -402,9 +679,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250824-WA0014.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Quiero tenerte a mi lado siempre,<br>
-      mi amor, mi vida, mi hermosa Daylin.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Quiero tenerte a mi lado siempre,<br>mi amor, mi vida, mi hermosa Daylin.</div>
+      <div class="frase-secundaria">Eres mi confidente, mi compañera 💝</div>
     </div>
   </div>
 
@@ -413,9 +690,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20250824-WA0016.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      En tus ojos veo mi futuro,<br>
-      en tu corazón encuentro mi hogar.
+    <div class="frases-contenedor">
+      <div class="frase-principal">En tus ojos veo mi futuro,<br>en tu corazón encuentro mi hogar.</div>
+      <div class="frase-secundaria">Juntos construiremos nuestro mundo 🌍</div>
     </div>
   </div>
 
@@ -424,9 +701,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20260102-WA0027.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Cada beso tuyо es medicina para mi alma,<br>
-      cada abrazo tuyo es mi paraíso, preciosa.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Cada beso tuyo es medicina para mi alma,<br>cada abrazo tuyo es mi paraíso, preciosa.</div>
+      <div class="frase-secundaria">Contigo todo tiene sentido 💕</div>
     </div>
   </div>
 
@@ -435,9 +712,9 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20260306-WA0050.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      Eres mi confidente, mi compañera, mi niña bonita.<br>
-      No quiero vivir un solo día sin ti.
+    <div class="frases-contenedor">
+      <div class="frase-principal">Eres mi confidente, mi compañera, mi niña bonita,<br>no quiero vivir un solo día sin ti.</div>
+      <div class="frase-secundaria">Mi amor por ti es infinito 🌹</div>
     </div>
   </div>
 
@@ -446,24 +723,29 @@ button:active {
     <div class="foto-contenedor">
       <img src="IMG-20260403-WA0049.jpg" alt="Nuestro momento">
     </div>
-    <div class="frase">
-      5 años contigo y siento que fue ayer.<br>
-      Me encantas mi amor, con cada fibra de mi ser.
+    <div class="frases-contenedor">
+      <div class="frase-principal">5 años contigo y siento que fue ayer,<br>me encantas mi amor, con cada fibra de mi ser.</div>
+      <div class="frase-secundaria">Feliz aniversario, mi preciosa 💖</div>
     </div>
   </div>
 
   <!-- Página Final: Mensaje especial -->
   <div class="pagina-libro pagina-final">
-    <div style="font-size: 72px;">💕</div>
+    <div style="font-size: 80px; animation: latir 1.5s ease-in-out infinite;">💕</div>
     <div class="mensaje-final">
       Daylin, mi vida, mi preciosa...<br><br>
       Estos 5 años contigo han sido los más bellos.<br><br>
+      En cada momento contigo aprendo a amarte más,<br>
+      a valorarte más, a necesitarte más.<br><br>
+      Gracias por ser mi compañera en este camino,<br>
+      gracias por tu amor, tu risa, tu presencia.<br><br>
       Te amo infinitamente,<br>
       eres mi amor, mi todo, mi razón de ser.<br><br>
       Feliz aniversario, mi hermosa. 🌹<br><br>
       <span style="color: #ffb6c1; font-size: 28px;">Siempre tuyo ❤️</span>
     </div>
   </div>
+
 </div>
 
 <!-- Controles -->
@@ -492,6 +774,28 @@ function crearParticulasFondo() {
   }
 }
 
+// Efecto de escritura para la introducción
+function escribirConEfecto() {
+  const textoCompleto = `Bienvenida a nuestro libro del amor, preciosa.\n\nEste es un pequeño detalle para ti, un regalo hecho con todo mi corazón.\n\nCada página representa los momentos más hermosos que hemos compartido,\nlos recuerdos que guardo en lo más profundo de mi alma.\n\nEspero que disfrutes cada foto, cada frase, cada sentimiento aquí plasmado.\n\nTe amo mi vida, te amo mi amor, te amo infinitamente.`;
+  
+  const introDiv = document.getElementById('intro-dinamico');
+  let indice = 0;
+  
+  function escribir() {
+    if (indice < textoCompleto.length) {
+      if (textoCompleto[indice] === '\n') {
+        introDiv.innerHTML += '<br>';
+      } else {
+        introDiv.innerHTML += textoCompleto[indice];
+      }
+      indice++;
+      setTimeout(escribir, 40); // Velocidad de escritura
+    }
+  }
+  
+  escribir();
+}
+
 function crearRosasFlotantes() {
   const rosa = document.createElement('div');
   rosa.className = 'rosas-flotantes';
@@ -503,6 +807,21 @@ function crearRosasFlotantes() {
   setTimeout(() => rosa.remove(), 12000);
 }
 
+// Crear corazones flotantes especiales
+function crearCorazoneFlotante(x, y) {
+  const corazon = document.createElement('div');
+  corazon.className = 'corazon-especial';
+  const emojis = ['💕', '❤️', '💖', '💗', '💝'];
+  corazon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+  corazon.style.left = x + 'px';
+  corazon.style.top = y + 'px';
+  corazon.style.setProperty('--tx', (Math.random() - 0.5) * 100 + 'px');
+  
+  document.body.appendChild(corazon);
+  
+  setTimeout(() => corazon.remove(), 4000);
+}
+
 function abrirLibro() {
   document.getElementById('portada').style.display = 'none';
   document.getElementById('contenedor-libro').style.display = 'block';
@@ -512,7 +831,13 @@ function abrirLibro() {
   
   paginaActual = 0;
   mostrarPagina();
-  setInterval(crearRosasFlotantes, 3000);
+  escribirConEfecto();
+  setInterval(crearRosasFlotantes, 2000);
+  
+  // Crear corazones flotantes en clics aleatorios
+  setInterval(() => {
+    crearCorazoneFlotante(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+  }, 3000);
 }
 
 function mostrarPagina() {
@@ -528,7 +853,8 @@ function mostrarPagina() {
   document.getElementById('btnSiguiente').style.opacity = paginaActual === totalPaginas - 1 ? '0.5' : '1';
   document.getElementById('btnSiguiente').style.pointerEvents = paginaActual === totalPaginas - 1 ? 'none' : 'auto';
   
-  document.getElementById('contador').innerHTML = `${paginaActual + 1} de ${totalPaginas}`;
+  const etiquetas = ['Introducción', 'Foto 1', 'Foto 2', 'Foto 3', 'Foto 4', 'Foto 5', 'Foto 6', 'Foto 7', 'Foto 8', 'Foto 9', 'Foto 10', 'Final'];
+  document.getElementById('contador').innerHTML = `${etiquetas[paginaActual]} (${paginaActual + 1}/${totalPaginas})`;
 }
 
 function paginaSiguiente() {
