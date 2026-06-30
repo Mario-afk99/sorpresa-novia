@@ -6,11 +6,12 @@
 <title>5 Años - Mi Amor 💕</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#f5e6d3,#e8d4b8);font-family:Georgia,serif;color:#8b5a5a}
+body{height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#f5e6d3,#e8d4b8),url('397ae90355fe1f871da757256c5d7d12.jpg');background-size:cover;background-attachment:fixed;font-family:Georgia,serif;color:#8b5a5a;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,248,240,0.1);z-index:0}
 #portada{text-align:center;z-index:100;position:relative}
-h1{font-size:60px;margin-bottom:20px;color:#f4a460;letter-spacing:2px;font-weight:bold}
-.subtitulo{font-size:28px;color:#d4949f;margin-bottom:15px}
-.descripcion{font-size:18px;color:#d4949f;margin-bottom:30px;line-height:1.6}
+h1{font-size:60px;margin-bottom:20px;color:#f4a460;letter-spacing:2px;font-weight:bold;text-shadow:2px 2px 4px rgba(0,0,0,0.2)}
+.subtitulo{font-size:28px;color:#d4949f;margin-bottom:15px;text-shadow:1px 1px 3px rgba(0,0,0,0.1)}
+.descripcion{font-size:18px;color:#d4949f;margin-bottom:30px;line-height:1.6;text-shadow:1px 1px 2px rgba(0,0,0,0.1)}
 #contenedor-libro{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:50}
 .pagina{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:85%;max-width:850px;height:80vh;background:rgba(255,248,240,0.98);border-radius:15px;padding:40px;text-align:center;border:3px solid #d4949f;box-shadow:0 0 50px rgba(255,192,203,0.4);z-index:101;overflow:hidden;flex-direction:column;justify-content:center;align-items:center}
 .foto-contenedor{flex:1;display:flex;justify-content:center;align-items:center;max-height:400px}
@@ -21,7 +22,7 @@ h1{font-size:60px;margin-bottom:20px;color:#f4a460;letter-spacing:2px;font-weigh
 .intro-titulo{font-size:40px;color:#f4a460;margin-bottom:30px;font-weight:bold}
 .intro-texto{font-size:18px;color:#d4949f;line-height:1.8;margin-bottom:30px;min-height:200px}
 .intro-firma{font-size:20px;color:#f4a460;font-style:italic;margin-top:30px;font-weight:bold}
-.bienvenida-titulo{font-size:56px;color:#f4a460;margin-bottom:40px;font-weight:bold}
+.bienvenida-titulo{font-size:38px;color:#f4a460;margin-bottom:20px;font-weight:bold}
 .bienvenida-subtitulo{font-size:28px;color:#d4949f}
 .mensaje-final{font-size:20px;color:#d4949f;line-height:1.8}
 .controles{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:200}
@@ -33,44 +34,51 @@ button:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 0 20px rgba(255
 .boton-inicio{padding:12px 40px;font-size:16px}
 @keyframes subirRosa{0%{transform:translateY(0);opacity:0.5}100%{transform:translateY(-100vh) translateX(50px);opacity:0}}
 .rosas{position:fixed;font-size:25px;pointer-events:none;z-index:10;animation:subirRosa 6s linear forwards}
+.vaquita{position:fixed;font-size:35px;pointer-events:none;z-index:5;animation:caminar 8s linear infinite}
+@keyframes caminar{0%{transform:translateX(-100px) scaleX(-1)}50%{transform:translateX(100px) scaleX(-1)}100%{transform:translateX(-100px) scaleX(-1)}}
+.control-audio{position:fixed;bottom:80px;right:20px;z-index:200;background:rgba(255,248,240,0.9);border:2px solid #d4949f;border-radius:50%;width:50px;height:50px;display:flex;justify-content:center;align-items:center;cursor:pointer;font-size:24px}
 </style>
 </head>
 <body>
 
+<audio id="musica" loop>
+  <source src="Sebastián Yatra - No hay nadie más  LETRA(MP3_160K).mp3" type="audio/mpeg">
+</audio>
+
 <div id="portada">
   <div class="corazon-inicio">💕</div>
   <h1>5 AÑOS JUNTOS</h1>
-  <div class="subtitulo">Mi Preciosa (Daylin)</div>
-  <div class="descripcion">Cinco años contigo han sido los más hermosos.<br>Este es un pequeño detalle para ti.</div>
-  <button class="boton-inicio" onclick="abrir()">Abrir 💕</button>
+  <div class="subtitulo">Mi Preciosa Daylin</div>
+  <div class="descripcion">Cinco años contigo han sido los más hermosos.<br>Este es un pequeño regalo lleno de amor para ti.</div>
+  <button class="boton-inicio" onclick="abrir()">Abrir Libro 💕</button>
 </div>
 
 <div id="contenedor-libro">
   <div class="pagina" id="pag0">
-    <div class="bienvenida-titulo">✨BIENVENIDA✨</div>
-    <div class="bienvenida-subtitulo">A Nuestro Libro de Amor</div>
+    <div class="bienvenida-titulo">✨ BIENVENIDA ✨</div>
+    <div class="bienvenida-subtitulo">A Nuestro Libro del Amor</div>
   </div>
 
   <div class="pagina" id="pag1">
     <div class="intro-titulo">💌 Una Carta Para Ti 💌</div>
     <div class="intro-texto" id="intro-dinamico"></div>
-    <div class="intro-firma">Con todo mi amor,<br> Mario ❤️</div>
+    <div class="intro-firma">Con todo mi amor,<br>Tu Mario ❤️</div>
   </div>
 
-  <div class="pagina" id="pag2"><div class="foto-contenedor"><img src="IMG-20250405-WA0028.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Desde el primer momento que te ví, supe que eras el amor de mi vida.</div><div class="frase-secundaria">Te amo infinitamente 💕</div></div></div>
-  <div class="pagina" id="pag3"><div class="foto-contenedor"><img src="IMG-20250412-WA0011.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Cada día contigo es un regalo, me encantas🥰.</div><div class="frase-secundaria">Eres mi niña bonita 🌹</div></div></div>
-  <div class="pagina" id="pag4"><div class="foto-contenedor"><img src="IMG-20250520-WA0007.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Hermosa, eres lo mejor que me ha pasado en esta vida💖.</div><div class="frase-secundaria">Me encantas preciosa 💖</div></div></div>
-  <div class="pagina" id="pag5"><div class="foto-contenedor"><img src="IMG-20250720-WA0030.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Juntos hemos vivido momentos inolvidables.</div><div class="frase-secundaria">Te amo con toda mi alma 💗</div></div></div>
-  <div class="pagina" id="pag6"><div class="foto-contenedor"><img src="IMG-20250725-WA0026.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Tu sonrisa es mi debilidad, tu amor mi fortaleza.</div><div class="frase-secundaria">Eres mi razón de sonreír 🥰</div></div></div>
-  <div class="pagina" id="pag7"><div class="foto-contenedor"><img src="IMG-20250824-WA0014.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Quiero tenerte a mi lado siempre, mi amor.</div><div class="frase-secundaria">No seria nada sin ti 💝</div></div></div>
-  <div class="pagina" id="pag8"><div class="foto-contenedor"><img src="IMG-20250824-WA0016.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">En ti veo mi futuro, en ti encuentro paz.</div><div class="frase-secundaria">Construyamos un futuro juntos 🌍</div></div></div>
-  <div class="pagina" id="pag9"><div class="foto-contenedor"><img src="IMG-20260102-WA0027.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Amo cada beso que me das, cada abrazo, todo es maravilloso a tu lado.</div><div class="frase-secundaria">Contigo todo tiene sentido 💕</div></div></div>
-  <div class="pagina" id="pag10"><div class="foto-contenedor"><img src="IMG-20260306-WA0050.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Eres mi compañera, mi niña bonita.</div><div class="frase-secundaria">No podria vivir sin ti 🌹</div></div></div>
-  <div class="pagina" id="pag11"><div class="foto-contenedor"><img src="IMG-20260403-WA0049.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">5 años contigo hasta parece que fue ayer.</div><div class="frase-secundaria">Feliz aniversario, amor demi vida 💖</div></div></div>
+  <div class="pagina" id="pag2"><div class="foto-contenedor"><img src="IMG-20250405-WA0028.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Desde el primer momento que te ví, supe que eras mi amor, mi vida, mi preciosa.</div><div class="frase-secundaria">Te amo infinitamente 💕</div></div></div>
+  <div class="pagina" id="pag3"><div class="foto-contenedor"><img src="IMG-20250412-WA0011.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Cada día contigo es un regalo especial, mi hermosa.</div><div class="frase-secundaria">Eres mi niña bonita 🌹</div></div></div>
+  <div class="pagina" id="pag4"><div class="foto-contenedor"><img src="IMG-20250520-WA0007.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Mi hermosa, mi niña... eres lo mejor que me ha pasado en la vida.</div><div class="frase-secundaria">Me encantas preciosa 💖</div></div></div>
+  <div class="pagina" id="pag5"><div class="foto-contenedor"><img src="IMG-20250720-WA0030.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Juntos hemos vivido momentos inolvidables, cada recuerdo tuyo está en mi corazón.</div><div class="frase-secundaria">Te quiero con toda mi alma 💗</div></div></div>
+  <div class="pagina" id="pag6"><div class="foto-contenedor"><img src="IMG-20250725-WA0026.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Tu sonrisa es mi debilidad, tu amor es mi fortaleza, eres mi todo.</div><div class="frase-secundaria">Eres mi razón de sonreír 🥰</div></div></div>
+  <div class="pagina" id="pag7"><div class="foto-contenedor"><img src="IMG-20250824-WA0014.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Quiero tenerte a mi lado siempre, mi amor, mi vida, mi hermosa Daylin.</div><div class="frase-secundaria">Eres mi confidente 💝</div></div></div>
+  <div class="pagina" id="pag8"><div class="foto-contenedor"><img src="IMG-20250824-WA0016.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">En tus ojos veo mi futuro, en tu corazón encuentro mi hogar.</div><div class="frase-secundaria">Construiremos nuestro mundo juntos 🌍</div></div></div>
+  <div class="pagina" id="pag9"><div class="foto-contenedor"><img src="IMG-20260102-WA0027.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Cada beso tuyo es medicina para mi alma, cada abrazo tuyo es mi paraíso, preciosa.</div><div class="frase-secundaria">Contigo todo tiene sentido 💕</div></div></div>
+  <div class="pagina" id="pag10"><div class="foto-contenedor"><img src="IMG-20260306-WA0050.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">Eres mi compañera, mi niña bonita, no quiero vivir un solo día sin ti.</div><div class="frase-secundaria">Mi amor por ti es infinito 🌹</div></div></div>
+  <div class="pagina" id="pag11"><div class="foto-contenedor"><img src="IMG-20260403-WA0049.jpg" loading="lazy"></div><div class="frases-contenedor"><div class="frase-principal">5 años contigo y siento que fue ayer, me encantas mi amor, con toda mi alma.</div><div class="frase-secundaria">Feliz aniversario, mi preciosa 💖</div></div></div>
 
   <div class="pagina" id="pag12">
     <div style="font-size:70px;margin-bottom:30px">💕</div>
-    <div class="mensaje-final">Daylin, mi vida, mi corazon de melon...<br><br>Estos 5 años contigo han sido los más bellos.<br><br>Te amo infinitamente,<br>eres mi amor, mi todo, mi razón de ser.<br><br>Feliz aniversario hermosa. 🌹<br><br><span style="color:#f4a460">Siempre tuyo🥰❤️</span></div>
+    <div class="mensaje-final">Daylin, mi vida, mi preciosa...<br><br>Estos 5 años contigo han sido los más hermosos de mi existencia.<br><br>En cada momento contigo aprendo a amarte más, a valorarte más.<br><br>Te amo infinitamente,<br>eres mi amor, mi todo, mi razón de ser.<br><br>Feliz aniversario, mi hermosa. 🌹<br><br><span style="color:#f4a460">Siempre tuyo con todo mi corazón ❤️</span></div>
   </div>
 </div>
 
@@ -81,17 +89,24 @@ button:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 0 20px rgba(255
   <button id="btnCerrar" onclick="cerrar()" style="display:none">Cerrar</button>
 </div>
 
+<div class="control-audio" id="audioBtn" onclick="toggleMusica()" title="Click para música">🔊</div>
+
 <script>
-let pag=0,total=13;
-function escribir(){const t=`Bienvenida a nuestro libro de amor, preciosa.❤️
+let pag=0,total=13,musicaActiva=true;
+const musica=document.getElementById('musica');
+function escribir(){const t=`Bienvenida a nuestro libro del amor, preciosa.
+
 Este es un pequeño detalle para ti, un regalo hecho con todo mi corazón.
+
 Cada página representa los momentos más hermosos que hemos compartido.
+
 Te amo mi vida, te amo infinitamente.`,d=document.getElementById('intro-dinamico');d.innerHTML='';let i=0;const e=()=>{if(i<t.length){d.innerHTML+=t[i]==='\n'?'<br>':t[i];i++;setTimeout(e,30)}};e()}
-function mostrar(){document.querySelectorAll('.pagina').forEach(p=>p.style.display='none');document.getElementById('pag'+pag).style.display='flex';document.getElementById('contador').textContent='Página '+(pag+1)+' de '+total;const dis=pag===0||pag===total-1;document.getElementById('btnAnterior').disabled=pag===0;document.getElementById('btnSiguiente').disabled=pag===total-1;document.getElementById('btnAnterior').style.opacity=pag===0?'0.5':'1';document.getElementById('btnSiguiente').style.opacity=pag===total-1?'0.5':'1';if(pag===1)setTimeout(escribir,100)}
-function abrir(){document.getElementById('portada').style.display='none';document.getElementById('contenedor-libro').style.display='block';['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='inline-block');pag=0;mostrar();setInterval(()=>{const r=document.createElement('div');r.className='rosas';r.innerHTML='🌹';r.style.left=Math.random()*100+'vw';r.style.top='100vh';document.body.appendChild(r);setTimeout(()=>r.remove(),6100)},3000)}
+function mostrar(){document.querySelectorAll('.pagina').forEach(p=>p.style.display='none');document.getElementById('pag'+pag).style.display='flex';document.getElementById('contador').textContent='Página '+(pag+1)+' de '+total;document.getElementById('btnAnterior').disabled=pag===0;document.getElementById('btnSiguiente').disabled=pag===total-1;document.getElementById('btnAnterior').style.opacity=pag===0?'0.5':'1';document.getElementById('btnSiguiente').style.opacity=pag===total-1?'0.5':'1';if(pag===1)setTimeout(escribir,100)}
+function abrir(){document.getElementById('portada').style.display='none';document.getElementById('contenedor-libro').style.display='block';['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='inline-block');pag=0;mostrar();if(musicaActiva)musica.play();setInterval(()=>{const r=document.createElement('div');r.className='rosas';r.innerHTML='🌹';r.style.left=Math.random()*100+'vw';r.style.top='100vh';document.body.appendChild(r);setTimeout(()=>r.remove(),6100)},3000);setInterval(()=>{const v=document.createElement('div');v.className='vaquita';v.innerHTML='🐄';v.style.left=Math.random()*100+'vw';v.style.top=Math.random()*80+'vh';v.style.animationDuration=(6+Math.random()*4)+'s';document.body.appendChild(v);setTimeout(()=>v.remove(),10000)},4000)}
 function siguiente(){if(pag<total-1){pag++;mostrar()}}
 function anterior(){if(pag>0){pag--;mostrar()}}
-function cerrar(){document.getElementById('portada').style.display='block';document.getElementById('contenedor-libro').style.display='none';['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='none')}
+function cerrar(){document.getElementById('portada').style.display='block';document.getElementById('contenedor-libro').style.display='none';['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='none');musica.pause()}
+function toggleMusica(){musicaActiva=!musicaActiva;if(musicaActiva){musica.play();document.getElementById('audioBtn').innerHTML='🔊'}else{musica.pause();document.getElementById('audioBtn').innerHTML='🔇'}}
 document.addEventListener('keydown',e=>{if(document.getElementById('contenedor-libro').style.display==='block'){if(e.key==='ArrowLeft')anterior();if(e.key==='ArrowRight')siguiente()}})
 </script>
 
