@@ -3,252 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Para Daylin ❤️</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', Helvetica, sans-serif;
 }
 
-body{
-
-height:100vh;
-overflow:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(-45deg,#ff4b91,#8e44ad,#2980b9,#00c9a7);
-
-background-size:400% 400%;
-
-animation:fondo 12s ease infinite;
-
-color:white;
-
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a15 50%, #0a0a0a 100%);
+  color: white;
+  position: relative;
 }
 
-@keyframes fondo{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
+/* Fondo con efecto de partículas flotantes */
+.particulas-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-#inicio{
-
-text-align:center;
-z-index:10;
-
+.particula {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 105, 180, 0.3);
+  border-radius: 50%;
+  animation: flotarParticula 15s linear infinite;
 }
 
-h1{
-
-font-size:60px;
-margin-bottom:20px;
-
+@keyframes flotarParticula {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(100px);
+    opacity: 0;
+  }
 }
 
-p{
-
-font-size:22px;
-margin-bottom:25px;
-
+/* Pantalla de inicio */
+#inicio {
+  text-align: center;
+  z-index: 100;
+  position: relative;
+  animation: aparecer 0.8s ease-out;
 }
 
-button{
-
-padding:15px 35px;
-
-font-size:20px;
-
-border:none;
-
-border-radius:40px;
-
-cursor:pointer;
-
-background:white;
-
-color:#ff0066;
-
-font-weight:bold;
-
-transition:.3s;
-
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-button:hover{
-
-transform:scale(1.1);
-
+h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+  animation: brillar 2s ease-in-out infinite;
 }
 
-#juego{
-
-display:none;
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
+@keyframes brillar {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 20, 147, 0.7);
+  }
 }
 
-#panel{
-
-position:absolute;
-
-top:20px;
-left:20px;
-
-font-size:25px;
-
-font-weight:bold;
-
-background:rgba(0,0,0,.3);
-
-padding:15px;
-
-border-radius:15px;
-
+p {
+  font-size: 24px;
+  margin-bottom: 35px;
+  color: #ffb6c1;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
-.corazon{
-
-position:absolute;
-
-font-size:45px;
-
-cursor:pointer;
-
-user-select:none;
-
-transition:.2s;
-
-animation:latido .7s infinite;
-
+button {
+  padding: 18px 50px;
+  font-size: 22px;
+  border: 2px solid #ff1493;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
-.corazon:hover{
-
-transform:scale(1.3);
-
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
 }
 
-@keyframes latido{
-
-0%{transform:scale(1);}
-50%{transform:scale(1.25);}
-100%{transform:scale(1);}
-
+button:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+  left: 0;
 }
 
-#resultado{
-
-display:none;
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(10px);
-
-padding:40px;
-
-border-radius:25px;
-
-text-align:center;
-
-width:90%;
-max-width:700px;
-
+button:active {
+  transform: scale(0.98);
 }
 
-#resultado h2{
-
-font-size:45px;
-
-margin-bottom:20px;
-
+/* Pantalla del juego */
+#juego {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
 }
 
-#resultado p{
-
-font-size:22px;
-
-line-height:40px;
-
+#panel {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 25px 35px;
+  border-radius: 20px;
+  border: 2px solid #ff1493;
+  z-index: 200;
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
 }
 
-.confeti{
-
-position:absolute;
-
-width:12px;
-height:12px;
-
-animation:caer linear forwards;
-
+#panel span {
+  color: #ff69b4;
+  font-weight: bold;
+  font-size: 32px;
 }
 
-@keyframes caer{
-
-0%{
-
-transform:translateY(-30px) rotate(0deg);
-
+.corazon {
+  position: absolute;
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  animation: latido 0.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.6));
 }
 
-100%{
-
-transform:translateY(110vh) rotate(720deg);
-
+.corazon:hover {
+  transform: scale(1.4) rotate(10deg);
+  filter: drop-shadow(0 0 20px rgba(255, 20, 147, 1));
 }
 
+@keyframes latido {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
 }
 
-.flotando{
-
-position:absolute;
-
-font-size:25px;
-
-animation:subir linear infinite;
-
-opacity:.6;
-
+/* Pantalla de resultado */
+#resultado {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 50px;
+  border-radius: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  border: 2px solid #ff1493;
+  z-index: 300;
+  box-shadow: 0 0 50px rgba(255, 20, 147, 0.5), inset 0 0 30px rgba(255, 20, 147, 0.1);
+  animation: aparecerResultado 0.6s ease-out;
 }
 
-@keyframes subir{
-
-from{
-
-transform:translateY(100vh);
-
+@keyframes aparecerResultado {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
-to{
-
-transform:translateY(-120px);
-
+#resultado h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: #ff69b4;
+  animation: brillar 1.5s ease-in-out infinite;
 }
 
+#resultado p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #ffb6c1;
+  margin-bottom: 30px;
+}
+
+#imagen-premio {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin: 30px 0;
+  border: 3px solid #ff1493;
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
+  animation: aparecer 0.8s ease-out;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Confeti mejorado */
+.confeti {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 250;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(100vh) rotateZ(720deg);
+    opacity: 0;
+  }
+}
+
+/* Botón de reintentar */
+#btnReintentar {
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: 18px;
+  border: 2px solid #ff1493;
+  border-radius: 40px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+}
+
+#btnReintentar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+}
+
+.rosas-flotantes {
+  position: fixed;
+  font-size: 30px;
+  animation: subirRosa 8s linear infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes subirRosa {
+  from {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(-10vh) translateX(50px);
+    opacity: 0;
+  }
 }
 
 </style>
@@ -257,207 +321,233 @@ transform:translateY(-120px);
 
 <body>
 
+<!-- Partículas de fondo -->
+<div class="particulas-fondo" id="particulasFondo"></div>
+
+<!-- Pantalla de inicio -->
 <div id="inicio">
-
-<h1>❤️ Hola Daylin ❤️</h1>
-
-<p>
-
-Preparé un pequeño juego para ti.<br><br>
-
-¿Podrás atrapar todos los corazones?
-
-</p>
-
-<button onclick="iniciar()">
-
-Comenzar 💕
-
-</button>
-
+  <h1>💕 ¡Hola Daylin! 💕</h1>
+  <p>
+    Preparé algo especial para ti...<br><br>
+    Un juego donde cada corazón que atrapes<br>
+    representa el amor que siento por ti 🌹<br><br>
+    ¿Estás lista para descubrir tu sorpresa?
+  </p>
+  <button onclick="iniciar()">Comenzar el Juego 💗</button>
 </div>
 
+<!-- Pantalla del juego -->
 <div id="juego">
-
-<div id="panel">
-
-❤️ Puntos:
-<span id="puntos">0</span>
-
-<br><br>
-
-⏳ Tiempo:
-<span id="tiempo">30</span>
-
+  <div id="panel">
+    💖 Corazones: <span id="puntos">0</span>
+    <br><br>
+    ⏱️ Tiempo: <span id="tiempo">45</span>s
+  </div>
 </div>
 
-</div>
-
+<!-- Pantalla de resultado -->
 <div id="resultado">
-
-<h2>🎉 ¡Terminaste! 🎉</h2>
-
-<p id="mensajeFinal"></p>
-
+  <h2>🎉 ¡FELICIDADES! 🎉</h2>
+  <p id="mensajeFinal"></p>
+  <img id="imagen-premio" src="IMG-20260403-WA0049.jpg" alt="Tu sorpresa">
+  <p id="mensajeFinal2"></p>
+  <button id="btnReintentar" onclick="reintentar()">Jugar de Nuevo 💕</button>
 </div>
 
 <script>
 
-let puntos=0;
-
-let tiempo=30;
-
+let puntos = 0;
+let tiempo = 45;
 let intervalo;
-
 let reloj;
+let juegoActivo = false;
 
-function iniciar(){
-
-document.getElementById("inicio").style.display="none";
-
-document.getElementById("juego").style.display="block";
-
-reloj=setInterval(actualizarTiempo,1000);
-
-intervalo=setInterval(crearCorazon,600);
-
+// Crear partículas de fondo
+function crearParticulasFondo() {
+  const container = document.getElementById('particulasFondo');
+  for (let i = 0; i < 100; i++) {
+    const particula = document.createElement('div');
+    particula.className = 'particula';
+    particula.style.left = Math.random() * 100 + '%';
+    particula.style.animationDuration = (10 + Math.random() * 10) + 's';
+    particula.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(particula);
+  }
 }
 
-function actualizarTiempo(){
-
-tiempo--;
-
-document.getElementById("tiempo").innerHTML=tiempo;
-
-if(tiempo<=0){
-
-clearInterval(reloj);
-
-clearInterval(intervalo);
-
-terminar();
-
+function iniciar() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("juego").style.display = "block";
+  document.getElementById("resultado").style.display = "none";
+  
+  puntos = 0;
+  tiempo = 45;
+  juegoActivo = true;
+  
+  document.getElementById("puntos").innerHTML = puntos;
+  document.getElementById("tiempo").innerHTML = tiempo;
+  
+  reloj = setInterval(actualizarTiempo, 1000);
+  intervalo = setInterval(crearCorazon, 500);
+  
+  // Rosas flotantes de fondo
+  setInterval(crearRosasFlotantes, 1000);
 }
 
+function actualizarTiempo() {
+  tiempo--;
+  document.getElementById("tiempo").innerHTML = tiempo;
+  
+  if (tiempo <= 0) {
+    clearInterval(reloj);
+    clearInterval(intervalo);
+    juegoActivo = false;
+    terminar();
+  }
 }
 
-function crearCorazon(){
-
-const corazon=document.createElement("div");
-
-corazon.className="corazon";
-
-corazon.innerHTML="💖";
-
-corazon.style.left=Math.random()*90+"vw";
-
-corazon.style.top=Math.random()*85+"vh";
-
-corazon.onclick=function(){
-
-puntos++;
-
-document.getElementById("puntos").innerHTML=puntos;
-
-corazon.remove();
-
-};
-
-document.getElementById("juego").appendChild(corazon);
-
-setTimeout(()=>{
-
-corazon.remove();
-
-},1800);
-
+function crearCorazon() {
+  if (!juegoActivo) return;
+  
+  const corazon = document.createElement("div");
+  corazon.className = "corazon";
+  
+  const emojis = ["💖", "❤️", "💕", "💗", "💝"];
+  corazon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+  
+  corazon.style.left = Math.random() * 85 + "vw";
+  corazon.style.top = Math.random() * 80 + "vh";
+  
+  corazon.onclick = function(e) {
+    if (!juegoActivo) return;
+    e.stopPropagation();
+    puntos++;
+    document.getElementById("puntos").innerHTML = puntos;
+    crearChispa(e.clientX, e.clientY);
+    corazon.remove();
+  };
+  
+  document.getElementById("juego").appendChild(corazon);
+  
+  setTimeout(() => {
+    if (corazon.parentNode) {
+      corazon.remove();
+    }
+  }, 2000);
 }
 
-function terminar(){
-
-document.getElementById("juego").style.display="none";
-
-document.getElementById("resultado").style.display="block";
-
-if(puntos>=20){
-
-document.getElementById("mensajeFinal").innerHTML=
-
-"💖 ¡Lo lograste!<br><br>"+
-
-"Has atrapado <b>"+puntos+"</b> corazones.<br><br>"+
-
-"Estos representan una pequeña parte del cariño que siento por ti.<br><br>"+
-
-"❤️ Gracias por estos <b>5 años</b> llenos de momentos increíbles.<br><br>"+
-
-"Te quiero muchísimo, Daylin. 🌹";
-
-confeti();
-
-}else{
-
-document.getElementById("mensajeFinal").innerHTML=
-
-"❤️ Atrapaste <b>"+puntos+"</b> corazones.<br><br>"+
-
-"Puedes volver a intentarlo para conseguir más. 😊";
-
+function crearChispa(x, y) {
+  for (let i = 0; i < 5; i++) {
+    const chispa = document.createElement('div');
+    chispa.style.position = 'fixed';
+    chispa.style.left = x + 'px';
+    chispa.style.top = y + 'px';
+    chispa.style.width = '8px';
+    chispa.style.height = '8px';
+    chispa.style.background = '#ff1493';
+    chispa.style.borderRadius = '50%';
+    chispa.style.pointerEvents = 'none';
+    chispa.style.zIndex = '150';
+    
+    const angle = (Math.PI * 2 * i) / 5;
+    const velocity = 3 + Math.random() * 3;
+    const vx = Math.cos(angle) * velocity;
+    const vy = Math.sin(angle) * velocity;
+    
+    let posX = x;
+    let posY = y;
+    let life = 30;
+    
+    const animarChispa = setInterval(() => {
+      posX += vx;
+      posY += vy;
+      life--;
+      
+      chispa.style.left = posX + 'px';
+      chispa.style.top = posY + 'px';
+      chispa.style.opacity = life / 30;
+      
+      if (life <= 0) {
+        clearInterval(animarChispa);
+        chispa.remove();
+      }
+    }, 16);
+    
+    document.body.appendChild(chispa);
+  }
 }
 
+function crearRosasFlotantes() {
+  const rosa = document.createElement('div');
+  rosa.className = 'rosas-flotantes';
+  rosa.innerHTML = '🌹';
+  rosa.style.left = Math.random() * 100 + 'vw';
+  rosa.style.animationDuration = (8 + Math.random() * 4) + 's';
+  document.body.appendChild(rosa);
+  
+  setTimeout(() => rosa.remove(), 12000);
 }
 
-function confeti(){
-
-for(let i=0;i<250;i++){
-
-const c=document.createElement("div");
-
-c.className="confeti";
-
-c.style.left=Math.random()*100+"vw";
-
-c.style.background="hsl("+Math.random()*360+",100%,60%)";
-
-c.style.animationDuration=(2+Math.random()*3)+"s";
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-
-c.remove();
-
-},5000);
-
+function terminar() {
+  document.getElementById("juego").style.display = "none";
+  document.getElementById("resultado").style.display = "block";
+  
+  if (puntos >= 20) {
+    document.getElementById("mensajeFinal").innerHTML =
+      "💕 ¡Lo lograste! 💕<br><br>" +
+      "Has atrapado <b>" + puntos + "</b> corazones llenos de amor<br><br>" +
+      "Cada uno representa un momento especial contigo...";
+    
+    document.getElementById("mensajeFinal2").innerHTML =
+      "<br>❤️ Gracias por ser mi todo<br>" +
+      "Te amo infinitamente, Daylin 🌹<br>" +
+      "Esto es solo un pequeño regalo para ti 💝";
+    
+    confeti();
+  } else {
+    document.getElementById("mensajeFinal").innerHTML =
+      "💖 Atrapaste <b>" + puntos + "</b> corazones 💖<br><br>" +
+      "Casi lo logras... ¿Quieres intentarlo de nuevo?";
+    
+    document.getElementById("mensajeFinal2").innerHTML = "";
+    document.getElementById("imagen-premio").style.display = "none";
+  }
 }
 
+function confeti() {
+  document.getElementById("imagen-premio").style.display = "block";
+  
+  for (let i = 0; i < 300; i++) {
+    const c = document.createElement("div");
+    c.className = "confeti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.top = "-10px";
+    
+    const colores = ["#ff1493", "#ff69b4", "#ffb6c1", "#db7093", "#ff6ec7"];
+    c.style.background = colores[Math.floor(Math.random() * colores.length)];
+    
+    const duracion = (2 + Math.random() * 3) + "s";
+    c.style.animationName = "caer";
+    c.style.animationDuration = duracion;
+    c.style.animationFillMode = "forwards";
+    
+    const delay = Math.random() * 0.5;
+    c.style.animationDelay = delay + "s";
+    
+    document.body.appendChild(c);
+    
+    setTimeout(() => c.remove(), (parseFloat(duracion) + delay) * 1000);
+  }
 }
 
-function corazonesFondo(){
-
-const c=document.createElement("div");
-
-c.className="flotando";
-
-c.innerHTML="💗";
-
-c.style.left=Math.random()*100+"vw";
-
-c.style.fontSize=(15+Math.random()*25)+"px";
-
-c.style.animationDuration=(5+Math.random()*5)+"s";
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-
-c.remove();
-
-},10000);
-
+function reintentar() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("resultado").style.display = "none";
+  iniciar();
 }
 
-setInterval(corazonesFondo,400);
+// Inicializar partículas al cargar
+crearParticulasFondo();
 
 </script>
 
