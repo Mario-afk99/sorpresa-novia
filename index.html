@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Daylin ❤️</title>
+<title>5 Años Juntos - Para Mi Amor 💕</title>
 
 <style>
 
@@ -11,7 +11,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', Helvetica, sans-serif;
 }
 
 body {
@@ -20,7 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a15 50%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #1a0a1a 0%, #2d0d2d 50%, #0d0a1a 100%);
+  font-family: 'Georgia', serif;
   color: white;
   position: relative;
 }
@@ -62,12 +62,12 @@ body {
   }
 }
 
-/* Pantalla de inicio */
-#inicio {
+/* Página principal */
+#portada {
   text-align: center;
   z-index: 100;
   position: relative;
-  animation: aparecer 0.8s ease-out;
+  animation: aparecer 1.5s ease-out;
 }
 
 @keyframes aparecer {
@@ -83,13 +83,14 @@ body {
 
 h1 {
   font-size: 72px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
   animation: brillar 2s ease-in-out infinite;
+  letter-spacing: 2px;
 }
 
 @keyframes brillar {
@@ -101,18 +102,130 @@ h1 {
   }
 }
 
-p {
-  font-size: 24px;
-  margin-bottom: 35px;
-  color: #ffb6c1;
-  line-height: 1.6;
+.subtitulo {
+  font-size: 36px;
+  color: #ff69b4;
+  margin-bottom: 20px;
   font-weight: 300;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+}
+
+.descripcion {
+  font-size: 24px;
+  color: #ffb6c1;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
+/* Contenedor del libro */
+#contenedor-libro {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.8), rgba(0,0,0,0.95));
+  padding: 20px;
+  overflow: auto;
+}
+
+.pagina-libro {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 900px;
+  height: 90vh;
+  background: rgba(20, 20, 30, 0.95);
+  border-radius: 15px;
+  padding: 60px;
+  text-align: center;
+  border: 2px solid #ff1493;
+  box-shadow: 0 0 60px rgba(255, 20, 147, 0.5), inset 0 0 40px rgba(255, 20, 147, 0.1);
+  z-index: 101;
+  animation: aparecer 1s ease-out;
+  overflow: hidden;
+}
+
+.pagina-foto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.foto-contenedor {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+  animation: zoom-in 2s ease-out;
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.foto-contenedor img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  border: 3px solid #ff1493;
+  box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+  object-fit: cover;
+}
+
+.frase {
+  font-size: 26px;
+  color: #ffb6c1;
+  line-height: 1.8;
+  font-style: italic;
+  animation: fade-in 3s ease-out;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.controles {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 200;
 }
 
 button {
-  padding: 18px 50px;
-  font-size: 22px;
+  padding: 15px 40px;
+  font-size: 18px;
   border: 2px solid #ff1493;
   border-radius: 50px;
   cursor: pointer;
@@ -121,179 +234,49 @@ button {
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-  position: relative;
-  overflow: hidden;
-}
-
-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: left 0.3s ease;
-  z-index: -1;
 }
 
 button:hover {
   transform: scale(1.08) translateY(-3px);
   box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
-  left: 0;
 }
 
 button:active {
   transform: scale(0.98);
 }
 
-/* Pantalla del juego */
-#juego {
+#btnAnterior, #btnSiguiente {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 50;
 }
 
-#panel {
-  position: absolute;
+.contador {
+  position: fixed;
   top: 30px;
-  left: 30px;
-  font-size: 28px;
-  font-weight: bold;
+  right: 30px;
+  font-size: 22px;
+  color: #ff69b4;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  padding: 25px 35px;
-  border-radius: 20px;
+  padding: 15px 30px;
+  border-radius: 50px;
   border: 2px solid #ff1493;
   z-index: 200;
-  box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
 }
 
-#panel span {
-  color: #ff69b4;
-  font-weight: bold;
+.pagina-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px !important;
+}
+
+.mensaje-final {
   font-size: 32px;
-}
-
-.corazon {
-  position: absolute;
-  font-size: 50px;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.15s ease;
-  animation: latido 0.6s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.6));
-}
-
-.corazon:hover {
-  transform: scale(1.4) rotate(10deg);
-  filter: drop-shadow(0 0 20px rgba(255, 20, 147, 1));
-}
-
-@keyframes latido {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-}
-
-/* Pantalla de resultado */
-#resultado {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(15px);
-  padding: 50px;
-  border-radius: 30px;
-  text-align: center;
-  width: 90%;
-  max-width: 800px;
-  border: 2px solid #ff1493;
-  z-index: 300;
-  box-shadow: 0 0 50px rgba(255, 20, 147, 0.5), inset 0 0 30px rgba(255, 20, 147, 0.1);
-  animation: aparecerResultado 0.6s ease-out;
-}
-
-@keyframes aparecerResultado {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-#resultado h2 {
-  font-size: 48px;
-  margin-bottom: 30px;
   color: #ff69b4;
-  animation: brillar 1.5s ease-in-out infinite;
-}
-
-#resultado p {
-  font-size: 20px;
-  line-height: 1.8;
-  color: #ffb6c1;
-  margin-bottom: 30px;
-}
-
-#imagen-premio {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  margin: 30px 0;
-  border: 3px solid #ff1493;
-  box-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
-  animation: aparecer 0.8s ease-out;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-/* Confeti mejorado */
-.confeti {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-  z-index: 250;
-}
-
-@keyframes caer {
-  to {
-    transform: translateY(100vh) rotateZ(720deg);
-    opacity: 0;
-  }
-}
-
-/* Botón de reintentar */
-#btnReintentar {
-  margin-top: 30px;
-  padding: 15px 40px;
-  font-size: 18px;
-  border: 2px solid #ff1493;
-  border-radius: 40px;
-  cursor: pointer;
-  background: linear-gradient(135deg, #ff1493, #ff69b4);
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-}
-
-#btnReintentar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+  line-height: 2;
+  animation: fade-in 2s ease-out;
 }
 
 .rosas-flotantes {
@@ -315,6 +298,26 @@ button:active {
   }
 }
 
+.corazon-inicio {
+  font-size: 60px;
+  animation: latir 1.5s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes latir {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.boton-inicio {
+  padding: 20px 60px;
+  font-size: 24px;
+}
+
 </style>
 
 </head>
@@ -324,43 +327,157 @@ button:active {
 <!-- Partículas de fondo -->
 <div class="particulas-fondo" id="particulasFondo"></div>
 
-<!-- Pantalla de inicio -->
-<div id="inicio">
-  <h1>💕 ¡Hola Daylin! 💕</h1>
-  <p>
-    Preparé algo especial para ti...<br><br>
-    Un juego donde cada corazón que atrapes<br>
-    representa el amor que siento por ti 🌹<br><br>
-    ¿Estás lista para descubrir tu sorpresa?
-  </p>
-  <button onclick="iniciar()">Comenzar el Juego 💗</button>
+<!-- Página de inicio -->
+<div id="portada">
+  <div class="corazon-inicio">💕</div>
+  <h1>5 AÑOS JUNTOS</h1>
+  <div class="subtitulo">Mi Preciosa Daylin</div>
+  <div class="descripcion">
+    Cinco años contigo han sido los más hermosos de mi vida.<br>
+    Este es un pequeño regalo para ti.<br>
+    Nuestras fotos, nuestros momentos, nuestro amor.
+  </div>
+  <button class="boton-inicio" onclick="abrirLibro()">Abrir Nuestro Libro 💕</button>
 </div>
 
-<!-- Pantalla del juego -->
-<div id="juego">
-  <div id="panel">
-    💖 Corazones: <span id="puntos">0</span>
-    <br><br>
-    ⏱️ Tiempo: <span id="tiempo">45</span>s
+<!-- Contenedor del libro -->
+<div id="contenedor-libro">
+  <!-- Página 1: Foto 1 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250405-WA0028.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Desde el primer momento que te ví,<br>
+      supe que eras mi amor, mi vida, mi preciosa.
+    </div>
+  </div>
+
+  <!-- Página 2: Foto 2 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250412-WA0011.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Cada día contigo es un regalo especial.<br>
+      Te amo mi amor, te amo con todo mi corazón.
+    </div>
+  </div>
+
+  <!-- Página 3: Foto 3 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250520-WA0007.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Mi hermosa, mi niña...<br>
+      Eres lo mejor que me ha pasado en la vida.
+    </div>
+  </div>
+
+  <!-- Página 4: Foto 4 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250720-WA0030.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Juntos hemos vivido momentos inolvidables.<br>
+      Me encantas preciosa, cada parte de ti.
+    </div>
+  </div>
+
+  <!-- Página 5: Foto 5 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250725-WA0026.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Tu sonrisa es mi debilidad,<br>
+      tu amor es mi fortaleza, mi todo.
+    </div>
+  </div>
+
+  <!-- Página 6: Foto 6 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250824-WA0014.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Quiero tenerte a mi lado siempre,<br>
+      mi amor, mi vida, mi hermosa Daylin.
+    </div>
+  </div>
+
+  <!-- Página 7: Foto 7 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20250824-WA0016.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      En tus ojos veo mi futuro,<br>
+      en tu corazón encuentro mi hogar.
+    </div>
+  </div>
+
+  <!-- Página 8: Foto 8 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20260102-WA0027.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Cada beso tuyо es medicina para mi alma,<br>
+      cada abrazo tuyo es mi paraíso, preciosa.
+    </div>
+  </div>
+
+  <!-- Página 9: Foto 9 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20260306-WA0050.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      Eres mi confidente, mi compañera, mi niña bonita.<br>
+      No quiero vivir un solo día sin ti.
+    </div>
+  </div>
+
+  <!-- Página 10: Foto 10 -->
+  <div class="pagina-libro pagina-foto">
+    <div class="foto-contenedor">
+      <img src="IMG-20260403-WA0049.jpg" alt="Nuestro momento">
+    </div>
+    <div class="frase">
+      5 años contigo y siento que fue ayer.<br>
+      Me encantas mi amor, con cada fibra de mi ser.
+    </div>
+  </div>
+
+  <!-- Página Final: Mensaje especial -->
+  <div class="pagina-libro pagina-final">
+    <div style="font-size: 72px;">💕</div>
+    <div class="mensaje-final">
+      Daylin, mi vida, mi preciosa...<br><br>
+      Estos 5 años contigo han sido los más bellos.<br><br>
+      Te amo infinitamente,<br>
+      eres mi amor, mi todo, mi razón de ser.<br><br>
+      Feliz aniversario, mi hermosa. 🌹<br><br>
+      <span style="color: #ffb6c1; font-size: 28px;">Siempre tuyo ❤️</span>
+    </div>
   </div>
 </div>
 
-<!-- Pantalla de resultado -->
-<div id="resultado">
-  <h2>🎉 ¡FELICIDADES! 🎉</h2>
-  <p id="mensajeFinal"></p>
-  <img id="imagen-premio" src="IMG-20260403-WA0049.jpg" alt="Tu sorpresa">
-  <p id="mensajeFinal2"></p>
-  <button id="btnReintentar" onclick="reintentar()">Jugar de Nuevo 💕</button>
+<!-- Controles -->
+<div class="contador" id="contador"></div>
+<div class="controles">
+  <button id="btnAnterior" onclick="paginaAnterior()">← Anterior</button>
+  <button id="btnSiguiente" onclick="paginaSiguiente()">Siguiente →</button>
+  <button id="btnCerrar" onclick="cerrarLibro()" style="display: none;">Cerrar</button>
 </div>
 
 <script>
 
-let puntos = 0;
-let tiempo = 45;
-let intervalo;
-let reloj;
-let juegoActivo = false;
+let paginaActual = 0;
+const totalPaginas = document.querySelectorAll('.pagina-libro').length;
 
 // Crear partículas de fondo
 function crearParticulasFondo() {
@@ -375,108 +492,6 @@ function crearParticulasFondo() {
   }
 }
 
-function iniciar() {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("juego").style.display = "block";
-  document.getElementById("resultado").style.display = "none";
-  
-  puntos = 0;
-  tiempo = 45;
-  juegoActivo = true;
-  
-  document.getElementById("puntos").innerHTML = puntos;
-  document.getElementById("tiempo").innerHTML = tiempo;
-  
-  reloj = setInterval(actualizarTiempo, 1000);
-  intervalo = setInterval(crearCorazon, 500);
-  
-  // Rosas flotantes de fondo
-  setInterval(crearRosasFlotantes, 1000);
-}
-
-function actualizarTiempo() {
-  tiempo--;
-  document.getElementById("tiempo").innerHTML = tiempo;
-  
-  if (tiempo <= 0) {
-    clearInterval(reloj);
-    clearInterval(intervalo);
-    juegoActivo = false;
-    terminar();
-  }
-}
-
-function crearCorazon() {
-  if (!juegoActivo) return;
-  
-  const corazon = document.createElement("div");
-  corazon.className = "corazon";
-  
-  const emojis = ["💖", "❤️", "💕", "💗", "💝"];
-  corazon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-  
-  corazon.style.left = Math.random() * 85 + "vw";
-  corazon.style.top = Math.random() * 80 + "vh";
-  
-  corazon.onclick = function(e) {
-    if (!juegoActivo) return;
-    e.stopPropagation();
-    puntos++;
-    document.getElementById("puntos").innerHTML = puntos;
-    crearChispa(e.clientX, e.clientY);
-    corazon.remove();
-  };
-  
-  document.getElementById("juego").appendChild(corazon);
-  
-  setTimeout(() => {
-    if (corazon.parentNode) {
-      corazon.remove();
-    }
-  }, 2000);
-}
-
-function crearChispa(x, y) {
-  for (let i = 0; i < 5; i++) {
-    const chispa = document.createElement('div');
-    chispa.style.position = 'fixed';
-    chispa.style.left = x + 'px';
-    chispa.style.top = y + 'px';
-    chispa.style.width = '8px';
-    chispa.style.height = '8px';
-    chispa.style.background = '#ff1493';
-    chispa.style.borderRadius = '50%';
-    chispa.style.pointerEvents = 'none';
-    chispa.style.zIndex = '150';
-    
-    const angle = (Math.PI * 2 * i) / 5;
-    const velocity = 3 + Math.random() * 3;
-    const vx = Math.cos(angle) * velocity;
-    const vy = Math.sin(angle) * velocity;
-    
-    let posX = x;
-    let posY = y;
-    let life = 30;
-    
-    const animarChispa = setInterval(() => {
-      posX += vx;
-      posY += vy;
-      life--;
-      
-      chispa.style.left = posX + 'px';
-      chispa.style.top = posY + 'px';
-      chispa.style.opacity = life / 30;
-      
-      if (life <= 0) {
-        clearInterval(animarChispa);
-        chispa.remove();
-      }
-    }, 16);
-    
-    document.body.appendChild(chispa);
-  }
-}
-
 function crearRosasFlotantes() {
   const rosa = document.createElement('div');
   rosa.className = 'rosas-flotantes';
@@ -488,66 +503,66 @@ function crearRosasFlotantes() {
   setTimeout(() => rosa.remove(), 12000);
 }
 
-function terminar() {
-  document.getElementById("juego").style.display = "none";
-  document.getElementById("resultado").style.display = "block";
+function abrirLibro() {
+  document.getElementById('portada').style.display = 'none';
+  document.getElementById('contenedor-libro').style.display = 'block';
+  document.getElementById('btnAnterior').style.display = 'inline-block';
+  document.getElementById('btnSiguiente').style.display = 'inline-block';
+  document.getElementById('btnCerrar').style.display = 'inline-block';
   
-  if (puntos >= 20) {
-    document.getElementById("mensajeFinal").innerHTML =
-      "💕 ¡Lo lograste! 💕<br><br>" +
-      "Has atrapado <b>" + puntos + "</b> corazones llenos de amor<br><br>" +
-      "Cada uno representa un momento especial contigo...";
-    
-    document.getElementById("mensajeFinal2").innerHTML =
-      "<br>❤️ Gracias por ser mi todo<br>" +
-      "Te amo infinitamente, Daylin 🌹<br>" +
-      "Esto es solo un pequeño regalo para ti 💝";
-    
-    confeti();
-  } else {
-    document.getElementById("mensajeFinal").innerHTML =
-      "💖 Atrapaste <b>" + puntos + "</b> corazones 💖<br><br>" +
-      "Casi lo logras... ¿Quieres intentarlo de nuevo?";
-    
-    document.getElementById("mensajeFinal2").innerHTML = "";
-    document.getElementById("imagen-premio").style.display = "none";
+  paginaActual = 0;
+  mostrarPagina();
+  setInterval(crearRosasFlotantes, 3000);
+}
+
+function mostrarPagina() {
+  const paginas = document.querySelectorAll('.pagina-libro');
+  
+  paginas.forEach((pagina, index) => {
+    pagina.style.display = index === paginaActual ? 'flex' : 'none';
+  });
+  
+  document.getElementById('btnAnterior').style.opacity = paginaActual === 0 ? '0.5' : '1';
+  document.getElementById('btnAnterior').style.pointerEvents = paginaActual === 0 ? 'none' : 'auto';
+  
+  document.getElementById('btnSiguiente').style.opacity = paginaActual === totalPaginas - 1 ? '0.5' : '1';
+  document.getElementById('btnSiguiente').style.pointerEvents = paginaActual === totalPaginas - 1 ? 'none' : 'auto';
+  
+  document.getElementById('contador').innerHTML = `${paginaActual + 1} de ${totalPaginas}`;
+}
+
+function paginaSiguiente() {
+  if (paginaActual < totalPaginas - 1) {
+    paginaActual++;
+    mostrarPagina();
   }
 }
 
-function confeti() {
-  document.getElementById("imagen-premio").style.display = "block";
-  
-  for (let i = 0; i < 300; i++) {
-    const c = document.createElement("div");
-    c.className = "confeti";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.top = "-10px";
-    
-    const colores = ["#ff1493", "#ff69b4", "#ffb6c1", "#db7093", "#ff6ec7"];
-    c.style.background = colores[Math.floor(Math.random() * colores.length)];
-    
-    const duracion = (2 + Math.random() * 3) + "s";
-    c.style.animationName = "caer";
-    c.style.animationDuration = duracion;
-    c.style.animationFillMode = "forwards";
-    
-    const delay = Math.random() * 0.5;
-    c.style.animationDelay = delay + "s";
-    
-    document.body.appendChild(c);
-    
-    setTimeout(() => c.remove(), (parseFloat(duracion) + delay) * 1000);
+function paginaAnterior() {
+  if (paginaActual > 0) {
+    paginaActual--;
+    mostrarPagina();
   }
 }
 
-function reintentar() {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("resultado").style.display = "none";
-  iniciar();
+function cerrarLibro() {
+  document.getElementById('portada').style.display = 'block';
+  document.getElementById('contenedor-libro').style.display = 'none';
+  document.getElementById('btnAnterior').style.display = 'none';
+  document.getElementById('btnSiguiente').style.display = 'none';
+  document.getElementById('btnCerrar').style.display = 'none';
 }
 
-// Inicializar partículas al cargar
+// Inicializar
 crearParticulasFondo();
+
+// Navegación con teclado
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('contenedor-libro').style.display === 'block') {
+    if (e.key === 'ArrowLeft') paginaAnterior();
+    if (e.key === 'ArrowRight') paginaSiguiente();
+  }
+});
 
 </script>
 
