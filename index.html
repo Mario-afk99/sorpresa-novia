@@ -1,91 +1,464 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola León</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+<title>Para Daylin ❤️</title>
 
-        body{
-            background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            overflow:hidden;
-        }
+<style>
 
-        .caja{
-            background:rgba(255,255,255,.1);
-            backdrop-filter:blur(10px);
-            border:1px solid rgba(255,255,255,.2);
-            padding:50px;
-            border-radius:20px;
-            text-align:center;
-            color:white;
-            animation:entrada 1.5s;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-        h1{
-            font-size:70px;
-            margin-bottom:20px;
-        }
+body{
 
-        p{
-            font-size:22px;
-            margin-bottom:30px;
-        }
+height:100vh;
+overflow:hidden;
 
-        button{
-            padding:15px 30px;
-            border:none;
-            border-radius:30px;
-            font-size:18px;
-            cursor:pointer;
-            background:#00d4ff;
-            color:black;
-            transition:.3s;
-        }
+display:flex;
+justify-content:center;
+align-items:center;
 
-        button:hover{
-            transform:scale(1.1);
-        }
+background:linear-gradient(-45deg,#ff4b91,#8e44ad,#2980b9,#00c9a7);
 
-        @keyframes entrada{
-            from{
-                opacity:0;
-                transform:translateY(50px);
-            }
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
-        }
-    </style>
+background-size:400% 400%;
+
+animation:fondo 12s ease infinite;
+
+color:white;
+
+}
+
+@keyframes fondo{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+#inicio{
+
+text-align:center;
+z-index:10;
+
+}
+
+h1{
+
+font-size:60px;
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:22px;
+margin-bottom:25px;
+
+}
+
+button{
+
+padding:15px 35px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff0066;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+}
+
+#juego{
+
+display:none;
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+}
+
+#panel{
+
+position:absolute;
+
+top:20px;
+left:20px;
+
+font-size:25px;
+
+font-weight:bold;
+
+background:rgba(0,0,0,.3);
+
+padding:15px;
+
+border-radius:15px;
+
+}
+
+.corazon{
+
+position:absolute;
+
+font-size:45px;
+
+cursor:pointer;
+
+user-select:none;
+
+transition:.2s;
+
+animation:latido .7s infinite;
+
+}
+
+.corazon:hover{
+
+transform:scale(1.3);
+
+}
+
+@keyframes latido{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.25);}
+100%{transform:scale(1);}
+
+}
+
+#resultado{
+
+display:none;
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+width:90%;
+max-width:700px;
+
+}
+
+#resultado h2{
+
+font-size:45px;
+
+margin-bottom:20px;
+
+}
+
+#resultado p{
+
+font-size:22px;
+
+line-height:40px;
+
+}
+
+.confeti{
+
+position:absolute;
+
+width:12px;
+height:12px;
+
+animation:caer linear forwards;
+
+}
+
+@keyframes caer{
+
+0%{
+
+transform:translateY(-30px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+
+.flotando{
+
+position:absolute;
+
+font-size:25px;
+
+animation:subir linear infinite;
+
+opacity:.6;
+
+}
+
+@keyframes subir{
+
+from{
+
+transform:translateY(100vh);
+
+}
+
+to{
+
+transform:translateY(-120px);
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="caja">
-    <h1>🦁 Hola León 🦁</h1>
+<div id="inicio">
 
-    <p>Esta es una página de prueba creada con GitHub Pages.</p>
+<h1>❤️ Hola Daylin ❤️</h1>
 
-    <button onclick="saludar()">Haz clic aquí</button>
+<p>
 
-    <h2 id="mensaje" style="margin-top:30px;"></h2>
+Preparé un pequeño juego para ti.<br><br>
+
+¿Podrás atrapar todos los corazones?
+
+</p>
+
+<button onclick="iniciar()">
+
+Comenzar 💕
+
+</button>
+
+</div>
+
+<div id="juego">
+
+<div id="panel">
+
+❤️ Puntos:
+<span id="puntos">0</span>
+
+<br><br>
+
+⏳ Tiempo:
+<span id="tiempo">30</span>
+
+</div>
+
+</div>
+
+<div id="resultado">
+
+<h2>🎉 ¡Terminaste! 🎉</h2>
+
+<p id="mensajeFinal"></p>
+
 </div>
 
 <script>
-function saludar(){
-    document.getElementById("mensaje").innerHTML="¡Bienvenido, León! 🚀";
+
+let puntos=0;
+
+let tiempo=30;
+
+let intervalo;
+
+let reloj;
+
+function iniciar(){
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("juego").style.display="block";
+
+reloj=setInterval(actualizarTiempo,1000);
+
+intervalo=setInterval(crearCorazon,600);
+
 }
+
+function actualizarTiempo(){
+
+tiempo--;
+
+document.getElementById("tiempo").innerHTML=tiempo;
+
+if(tiempo<=0){
+
+clearInterval(reloj);
+
+clearInterval(intervalo);
+
+terminar();
+
+}
+
+}
+
+function crearCorazon(){
+
+const corazon=document.createElement("div");
+
+corazon.className="corazon";
+
+corazon.innerHTML="💖";
+
+corazon.style.left=Math.random()*90+"vw";
+
+corazon.style.top=Math.random()*85+"vh";
+
+corazon.onclick=function(){
+
+puntos++;
+
+document.getElementById("puntos").innerHTML=puntos;
+
+corazon.remove();
+
+};
+
+document.getElementById("juego").appendChild(corazon);
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},1800);
+
+}
+
+function terminar(){
+
+document.getElementById("juego").style.display="none";
+
+document.getElementById("resultado").style.display="block";
+
+if(puntos>=20){
+
+document.getElementById("mensajeFinal").innerHTML=
+
+"💖 ¡Lo lograste!<br><br>"+
+
+"Has atrapado <b>"+puntos+"</b> corazones.<br><br>"+
+
+"Estos representan una pequeña parte del cariño que siento por ti.<br><br>"+
+
+"❤️ Gracias por estos <b>5 años</b> llenos de momentos increíbles.<br><br>"+
+
+"Te quiero muchísimo, Daylin. 🌹";
+
+confeti();
+
+}else{
+
+document.getElementById("mensajeFinal").innerHTML=
+
+"❤️ Atrapaste <b>"+puntos+"</b> corazones.<br><br>"+
+
+"Puedes volver a intentarlo para conseguir más. 😊";
+
+}
+
+}
+
+function confeti(){
+
+for(let i=0;i<250;i++){
+
+const c=document.createElement("div");
+
+c.className="confeti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background="hsl("+Math.random()*360+",100%,60%)";
+
+c.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+}
+
+}
+
+function corazonesFondo(){
+
+const c=document.createElement("div");
+
+c.className="flotando";
+
+c.innerHTML="💗";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.fontSize=(15+Math.random()*25)+"px";
+
+c.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},10000);
+
+}
+
+setInterval(corazonesFondo,400);
+
 </script>
 
 </body>
