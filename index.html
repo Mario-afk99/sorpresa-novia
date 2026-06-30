@@ -19,9 +19,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #1a0a1a 0%, #2d0d2d 50%, #0d0a1a 100%);
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 50%, #f5e6d3 100%);
   font-family: 'Georgia', serif;
-  color: white;
+  color: #8b5a5a;
   position: relative;
 }
 
@@ -40,7 +40,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(255, 105, 180, 0.3);
+  background: rgba(255, 182, 193, 0.3);
   border-radius: 50%;
   animation: flotarParticula 15s linear infinite;
 }
@@ -84,27 +84,27 @@ body {
 h1 {
   font-size: 72px;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493);
+  background: linear-gradient(135deg, #f4a460, #ffd700, #f4a460);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 20, 147, 0.3);
+  text-shadow: 0 0 30px rgba(255, 165, 0, 0.3);
   animation: brillar 2s ease-in-out infinite;
   letter-spacing: 2px;
 }
 
 @keyframes brillar {
   0%, 100% {
-    text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+    text-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
   }
   50% {
-    text-shadow: 0 0 40px rgba(255, 20, 147, 0.7);
+    text-shadow: 0 0 40px rgba(255, 165, 0, 0.7);
   }
 }
 
 .subtitulo {
   font-size: 36px;
-  color: #ff69b4;
+  color: #d4949f;
   margin-bottom: 20px;
   font-weight: 300;
   letter-spacing: 1px;
@@ -112,7 +112,7 @@ h1 {
 
 .descripcion {
   font-size: 24px;
-  color: #ffb6c1;
+  color: #d4949f;
   margin-bottom: 40px;
   line-height: 1.8;
   max-width: 700px;
@@ -130,7 +130,6 @@ h1 {
   width: 100%;
   height: 100%;
   z-index: 50;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.8), rgba(0,0,0,0.95));
   padding: 20px;
   overflow: auto;
 }
@@ -143,13 +142,13 @@ h1 {
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 900px;
-  height: 90vh;
-  background: rgba(20, 20, 30, 0.95);
+  height: 85vh;
+  background: rgba(255, 248, 240, 0.98);
   border-radius: 15px;
-  padding: 60px;
+  padding: 50px 40px;
   text-align: center;
-  border: 2px solid #ff1493;
-  box-shadow: 0 0 60px rgba(255, 20, 147, 0.5), inset 0 0 40px rgba(255, 20, 147, 0.1);
+  border: 3px solid #d4949f;
+  box-shadow: 0 0 60px rgba(255, 192, 203, 0.4), inset 0 0 40px rgba(255, 192, 203, 0.1);
   z-index: 101;
   animation: aparecer 1s ease-out;
   overflow: hidden;
@@ -160,7 +159,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 .foto-contenedor {
@@ -168,7 +167,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 500px;
+  max-height: 450px;
   perspective: 1000px;
 }
 
@@ -176,8 +175,8 @@ h1 {
   max-width: 100%;
   max-height: 100%;
   border-radius: 15px;
-  border: 3px solid #ff1493;
-  box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+  border: 3px solid #d4949f;
+  box-shadow: 0 0 40px rgba(255, 192, 203, 0.6);
   object-fit: cover;
   animation: rotarEntrada 1.2s ease-out;
 }
@@ -194,47 +193,47 @@ h1 {
 }
 
 /* Animaciones alternativas para fotos */
-.foto-contenedor img:nth-child(1) {
+.pagina-libro:nth-child(2) .foto-contenedor img {
   animation: deslizarDerecha 1s ease-out;
 }
 
-.pagina-libro:nth-child(2) .foto-contenedor img {
+.pagina-libro:nth-child(3) .foto-contenedor img {
   animation: deslizarIzquierda 1s ease-out;
 }
 
-.pagina-libro:nth-child(3) .foto-contenedor img {
+.pagina-libro:nth-child(4) .foto-contenedor img {
   animation: rebote 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.pagina-libro:nth-child(4) .foto-contenedor img {
+.pagina-libro:nth-child(5) .foto-contenedor img {
   animation: zoom 1s ease-out;
 }
 
-.pagina-libro:nth-child(5) .foto-contenedor img {
+.pagina-libro:nth-child(6) .foto-contenedor img {
   animation: volteo 1.3s ease-out;
 }
 
-.pagina-libro:nth-child(6) .foto-contenedor img {
+.pagina-libro:nth-child(7) .foto-contenedor img {
   animation: aparicionSuave 1.5s ease-out;
 }
 
-.pagina-libro:nth-child(7) .foto-contenedor img {
+.pagina-libro:nth-child(8) .foto-contenedor img {
   animation: deslizarArriba 1s ease-out;
 }
 
-.pagina-libro:nth-child(8) .foto-contenedor img {
+.pagina-libro:nth-child(9) .foto-contenedor img {
   animation: rotarEntrada 1.2s ease-out;
 }
 
-.pagina-libro:nth-child(9) .foto-contenedor img {
+.pagina-libro:nth-child(10) .foto-contenedor img {
   animation: ondular 1.5s ease-out;
 }
 
-.pagina-libro:nth-child(10) .foto-contenedor img {
+.pagina-libro:nth-child(11) .foto-contenedor img {
   animation: flotar 2s ease-out;
 }
 
-.pagina-libro:nth-child(11) .foto-contenedor img {
+.pagina-libro:nth-child(12) .foto-contenedor img {
   animation: pulso 1s ease-out;
 }
 
@@ -369,7 +368,7 @@ h1 {
 
 /* Estilos para las frases */
 .frases-contenedor {
-  min-height: 140px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -378,17 +377,18 @@ h1 {
 }
 
 .frase-principal {
-  font-size: 28px;
-  color: #ffb6c1;
+  font-size: 26px;
+  color: #d4949f;
   line-height: 1.8;
   font-style: italic;
   animation: escribir 3s ease-out;
-  min-height: 70px;
+  min-height: 60px;
+  font-weight: 300;
 }
 
 .frase-secundaria {
-  font-size: 22px;
-  color: #ff69b4;
+  font-size: 20px;
+  color: #f4a460;
   font-weight: bold;
   animation: escribir 3.5s ease-out;
   opacity: 0.9;
@@ -407,30 +407,30 @@ h1 {
 
 .controles {
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 20px;
+  gap: 15px;
   z-index: 200;
 }
 
 button {
-  padding: 15px 40px;
-  font-size: 18px;
-  border: 2px solid #ff1493;
+  padding: 10px 25px;
+  font-size: 14px;
+  border: 2px solid #d4949f;
   border-radius: 50px;
   cursor: pointer;
-  background: linear-gradient(135deg, #ff1493, #ff69b4);
-  color: white;
+  background: linear-gradient(135deg, #f4a460, #ffd700);
+  color: #8b5a5a;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+  box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
 }
 
 button:hover {
-  transform: scale(1.08) translateY(-3px);
-  box-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 192, 203, 0.8);
 }
 
 button:active {
@@ -443,17 +443,59 @@ button:active {
 
 .contador {
   position: fixed;
-  top: 30px;
-  right: 30px;
-  font-size: 22px;
-  color: #ff69b4;
-  background: rgba(0, 0, 0, 0.6);
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  color: #d4949f;
+  background: rgba(255, 248, 240, 0.8);
   backdrop-filter: blur(10px);
-  padding: 15px 30px;
+  padding: 12px 25px;
   border-radius: 50px;
-  border: 2px solid #ff1493;
+  border: 2px solid #d4949f;
   z-index: 200;
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.4);
+  font-weight: bold;
+}
+
+/* Página de bienvenida */
+#pagina-bienvenida {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 900px;
+  height: 85vh;
+  background: rgba(255, 248, 240, 0.98);
+  border-radius: 15px;
+  padding: 80px 60px;
+  text-align: center;
+  border: 3px solid #d4949f;
+  box-shadow: 0 0 60px rgba(255, 192, 203, 0.4), inset 0 0 40px rgba(255, 192, 203, 0.1);
+  z-index: 101;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: aparecer 1s ease-out;
+}
+
+.bienvenida-titulo {
+  font-size: 64px;
+  color: #f4a460;
+  margin-bottom: 60px;
+  animation: brillar 2s ease-in-out infinite;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.bienvenida-subtitulo {
+  font-size: 32px;
+  color: #d4949f;
+  animation: aparecer 2s ease-out;
+  font-weight: 300;
 }
 
 /* Página de introducción */
@@ -465,13 +507,13 @@ button:active {
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 900px;
-  height: 90vh;
-  background: rgba(20, 20, 30, 0.95);
+  height: 85vh;
+  background: rgba(255, 248, 240, 0.98);
   border-radius: 15px;
-  padding: 80px 60px;
+  padding: 60px 50px;
   text-align: center;
-  border: 2px solid #ff1493;
-  box-shadow: 0 0 60px rgba(255, 20, 147, 0.5), inset 0 0 40px rgba(255, 20, 147, 0.1);
+  border: 3px solid #d4949f;
+  box-shadow: 0 0 60px rgba(255, 192, 203, 0.4), inset 0 0 40px rgba(255, 192, 203, 0.1);
   z-index: 101;
   overflow: hidden;
   display: flex;
@@ -481,24 +523,24 @@ button:active {
 }
 
 .intro-titulo {
-  font-size: 52px;
-  color: #ff1493;
+  font-size: 48px;
+  color: #f4a460;
   margin-bottom: 40px;
   animation: brillar 2s ease-in-out infinite;
 }
 
 .intro-texto {
-  font-size: 24px;
-  color: #ffb6c1;
-  line-height: 2;
-  margin-bottom: 60px;
-  min-height: 200px;
+  font-size: 22px;
+  color: #d4949f;
+  line-height: 1.9;
+  margin-bottom: 50px;
+  min-height: 250px;
   font-weight: 300;
 }
 
 .intro-firma {
-  font-size: 28px;
-  color: #ff69b4;
+  font-size: 24px;
+  color: #f4a460;
   font-style: italic;
   margin-top: 40px;
   font-weight: bold;
@@ -513,10 +555,11 @@ button:active {
 }
 
 .mensaje-final {
-  font-size: 32px;
-  color: #ff69b4;
-  line-height: 2;
+  font-size: 28px;
+  color: #d4949f;
+  line-height: 1.9;
   animation: fade-in 2s ease-out;
+  font-weight: 300;
 }
 
 .rosas-flotantes {
@@ -554,8 +597,8 @@ button:active {
 }
 
 .boton-inicio {
-  padding: 20px 60px;
-  font-size: 24px;
+  padding: 15px 50px;
+  font-size: 20px;
 }
 
 /* Corazones flotantes especiales */
@@ -612,6 +655,12 @@ button:active {
 <!-- Contenedor del libro -->
 <div id="contenedor-libro">
   
+  <!-- Página de Bienvenida -->
+  <div id="pagina-bienvenida">
+    <div class="bienvenida-titulo">✨ BIENVENIDA ✨</div>
+    <div class="bienvenida-subtitulo">A Nuestro Libro del Amor</div>
+  </div>
+
   <!-- Página de Introducción -->
   <div id="pagina-intro">
     <div class="intro-titulo">💌 Una Carta Para Ti 💌</div>
@@ -742,7 +791,7 @@ button:active {
       Te amo infinitamente,<br>
       eres mi amor, mi todo, mi razón de ser.<br><br>
       Feliz aniversario, mi hermosa. 🌹<br><br>
-      <span style="color: #ffb6c1; font-size: 28px;">Siempre tuyo ❤️</span>
+      <span style="color: #f4a460; font-size: 26px;">Siempre tuyo ❤️</span>
     </div>
   </div>
 
@@ -759,7 +808,8 @@ button:active {
 <script>
 
 let paginaActual = 0;
-const totalPaginas = document.querySelectorAll('.pagina-libro').length;
+let mostrandoBienvenida = false;
+const totalPaginas = document.querySelectorAll('.pagina-libro').length + 2; // +2 por bienvenida e intro
 
 // Crear partículas de fondo
 function crearParticulasFondo() {
@@ -789,7 +839,7 @@ function escribirConEfecto() {
         introDiv.innerHTML += textoCompleto[indice];
       }
       indice++;
-      setTimeout(escribir, 40); // Velocidad de escritura
+      setTimeout(escribir, 35);
     }
   }
   
@@ -830,31 +880,46 @@ function abrirLibro() {
   document.getElementById('btnCerrar').style.display = 'inline-block';
   
   paginaActual = 0;
+  mostrandoBienvenida = true;
   mostrarPagina();
-  escribirConEfecto();
+  
   setInterval(crearRosasFlotantes, 2000);
   
-  // Crear corazones flotantes en clics aleatorios
   setInterval(() => {
     crearCorazoneFlotante(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
   }, 3000);
 }
 
 function mostrarPagina() {
+  // Ocultar todas las páginas
+  document.getElementById('pagina-bienvenida').style.display = 'none';
+  document.getElementById('pagina-intro').style.display = 'none';
   const paginas = document.querySelectorAll('.pagina-libro');
+  paginas.forEach(p => p.style.display = 'none');
   
-  paginas.forEach((pagina, index) => {
-    pagina.style.display = index === paginaActual ? 'flex' : 'none';
-  });
+  // Mostrar la página actual
+  if (paginaActual === 0) {
+    document.getElementById('pagina-bienvenida').style.display = 'flex';
+    document.getElementById('contador').innerHTML = `Bienvenida (1/${totalPaginas})`;
+  } else if (paginaActual === 1) {
+    document.getElementById('pagina-intro').style.display = 'flex';
+    escribirConEfecto();
+    document.getElementById('contador').innerHTML = `Carta de Amor (2/${totalPaginas})`;
+  } else {
+    const indiceReal = paginaActual - 2;
+    if (paginas[indiceReal]) {
+      paginas[indiceReal].style.display = 'flex';
+    }
+    const etiquetas = ['Foto 1', 'Foto 2', 'Foto 3', 'Foto 4', 'Foto 5', 'Foto 6', 'Foto 7', 'Foto 8', 'Foto 9', 'Foto 10', 'Final'];
+    document.getElementById('contador').innerHTML = `${etiquetas[indiceReal]} (${paginaActual + 1}/${totalPaginas})`;
+  }
   
+  // Controlar opacidad de botones
   document.getElementById('btnAnterior').style.opacity = paginaActual === 0 ? '0.5' : '1';
   document.getElementById('btnAnterior').style.pointerEvents = paginaActual === 0 ? 'none' : 'auto';
   
   document.getElementById('btnSiguiente').style.opacity = paginaActual === totalPaginas - 1 ? '0.5' : '1';
   document.getElementById('btnSiguiente').style.pointerEvents = paginaActual === totalPaginas - 1 ? 'none' : 'auto';
-  
-  const etiquetas = ['Introducción', 'Foto 1', 'Foto 2', 'Foto 3', 'Foto 4', 'Foto 5', 'Foto 6', 'Foto 7', 'Foto 8', 'Foto 9', 'Foto 10', 'Final'];
-  document.getElementById('contador').innerHTML = `${etiquetas[paginaActual]} (${paginaActual + 1}/${totalPaginas})`;
 }
 
 function paginaSiguiente() {
