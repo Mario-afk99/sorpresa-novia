@@ -52,21 +52,21 @@ button:disabled{opacity:0.4;cursor:not-allowed}
 <div id="portada">
   <div class="corazon-inicio">💕</div>
   <h1>5 AÑOS JUNTOS</h1>
-  <div class="subtitulo">Mi Preciosa Daylin</div>
+  <div class="subtitulo">Mi Preciosa (Daylin)</div>
   <div class="descripcion">Cinco años contigo han sido los más hermosos.<br>Este es un pequeño regalo lleno de amor para ti.</div>
-  <button class="boton-inicio" onclick="abrir()" title="Abrir el libro">Abrir Libro 💕</button>
+  <button class="boton-inicio" onclick="abrir()" title="Abrir el libro">Abrir💕</button>
 </div>
 
 <div id="contenedor-libro">
   <div class="pagina" id="pag0">
-    <div class="bienvenida-titulo">✨ BIENVENIDA ✨</div>
-    <div class="bienvenida-subtitulo">A Nuestro Libro del Amor</div>
+    <div class="bienvenida-titulo">✨BIENVENIDA✨</div>
+    <div class="bienvenida-subtitulo">A Nuestro Libro de Amor</div>
   </div>
 
   <div class="pagina" id="pag1">
     <div class="intro-titulo">💌 Una Carta Para Ti 💌</div>
     <div class="intro-texto" id="intro-dinamico"></div>
-    <div class="intro-firma">Con todo mi amor,<br>Tu Mario ❤️</div>
+    <div class="intro-firma">Con todo mi amor,<br> Mario❤️</div>
   </div>
 
   <div class="pagina" id="pag2"><div class="foto-contenedor"><img src="IMG-20250405-WA0028.jpg" loading="lazy" alt="Foto 1"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag2-principal"></div><div class="frase-secundaria" id="frase-pag2-secundaria"></div></div></div>
@@ -88,9 +88,9 @@ button:disabled{opacity:0.4;cursor:not-allowed}
 
 <div class="contador" id="contador"></div>
 <div class="controles">
-  <button id="btnAnterior" onclick="anterior()" title="Anterior">❤️</button>
-  <button id="btnSiguiente" onclick="siguiente()" title="Siguiente">❤️</button>
-  <button id="btnCerrar" onclick="cerrar()" style="display:none" title="Cerrar">❤️</button>
+  <button id="btnAnterior" onclick="anterior()" title="Anterior">anterior❤️</button>
+  <button id="btnSiguiente" onclick="siguiente()" title="Siguiente">sig.❤️</button>
+  <button id="btnCerrar" onclick="cerrar()" style="display:none" title="Cerrar">cerrar❤️</button>
 </div>
 
 <div class="control-audio" id="audioBtn" onclick="toggleMusica()" title="Click para música">🔊</div>
@@ -100,19 +100,19 @@ let pag=0,total=13,musicaActiva=true,libroAbierto=false,vaquitasActivadas=true;
 const musica=document.getElementById('musica');
 
 const frases={
-  2:{principal:"Desde el primer momento que te ví, supe que eras mi amor, mi vida, mi preciosa.",secundaria:"Te amo infinitamente 💕"},
-  3:{principal:"Cada día contigo es un regalo especial, mi hermosa.",secundaria:"Eres mi niña bonita 🌹"},
+  2:{principal:"Desde el primer momento que te ví, supe que eras el amor de mi vida.",secundaria:"Te amo infinitamente 💕"},
+  3:{principal:"Cada día contigo es un regalo especial hermosa.",secundaria:"Eres mi niña bonita 🌹"},
   4:{principal:"Mi hermosa, mi niña... eres lo mejor que me ha pasado en la vida.",secundaria:"Me encantas preciosa 💖"},
   5:{principal:"Juntos hemos vivido momentos inolvidables, cada recuerdo tuyo está en mi corazón.",secundaria:"Te quiero con toda mi alma 💗"},
-  6:{principal:"Tu sonrisa es mi debilidad, tu amor es mi fortaleza, eres mi todo.",secundaria:"Eres mi razón de sonreír 🥰"},
-  7:{principal:"Quiero tenerte a mi lado siempre, mi amor, mi vida, mi hermosa Daylin.",secundaria:"Eres mi confidente 💝"},
-  8:{principal:"En tus ojos veo mi futuro, en tu corazón encuentro mi hogar.",secundaria:"Construiremos nuestro mundo juntos 🌍"},
-  9:{principal:"Cada beso tuyo es medicina para mi alma, cada abrazo tuyo es mi paraíso, preciosa.",secundaria:"Contigo todo tiene sentido 💕"},
+  6:{principal:"Tu sonrisa es mi debilidad, eres mi todo, mi corazon de melon.",secundaria:"Eres mi razón de ser 🥰"},
+  7:{principal:"Quiero tenerte a mi lado siempre mi amor.",secundaria:"Eres mi lugar seguro 💝"},
+  8:{principal:"En tus ojos veo mi futuro, en tu corazón encuentro mi hogar.",secundaria:"Construyamos un mundo juntos 🌍"},
+  9:{principal:"Cada beso tuyo es felicidad para mi alma, cada abrazo tuyo es un paraíso, preciosa.",secundaria:"Contigo todo tiene sentido 💕"},
   10:{principal:"Eres mi compañera, mi niña bonita, no quiero vivir un solo día sin ti.",secundaria:"Mi amor por ti es infinito 🌹"},
-  11:{principal:"5 años contigo y siento que fue ayer, me encantas mi amor, con toda mi alma.",secundaria:"Feliz aniversario, mi preciosa 💖"}
+  11:{principal:"5 años contigo y siento que fue ayer, me encantas mi amor.",secundaria:"Feliz aniversario, mi preciosa 💖"}
 };
 
-const mensajeFinal=`Daylin, mi vida, mi preciosa...
+const mensajeFinal=`Daylin, hermosa, preciosa...
 
 Estos 5 años contigo han sido los más hermosos de mi existencia.
 
@@ -120,7 +120,6 @@ En cada momento contigo aprendo a amarte más, a valorarte más.
 
 Te amo infinitamente,
 eres mi amor, mi todo, mi razón de ser.
-
 Feliz aniversario, mi hermosa. 🌹
 
 Siempre tuyo con todo mi corazón ❤️`;
@@ -141,10 +140,9 @@ function escribirTexto(elementoId,texto,velocidad=60){
 }
 
 function escribir(){
-  const t=`Bienvenida a nuestro libro del amor, preciosa.
+  const t=`Bienvenida a nuestro libro de amor, preciosa.
 
 Este es un pequeño detalle para ti, un regalo hecho con todo mi corazón.
-
 Cada página representa los momentos más hermosos que hemos compartido.
 
 Te amo mi vida, te amo infinitamente.`;
