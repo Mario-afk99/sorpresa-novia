@@ -1,435 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>5 Años - Mi Amor ❤️</title>
-
-<!-- Fuentes -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Años - Mi Amor 💕</title>
 <style>
-:root{
-  --bg-1: #fff8f5;
-  --accent: #f4a460; /* color warm */
-  --accent-2: #d4949f; /* soft rose */
-  --muted: #8b5a5a;
-  --glass: rgba(255,255,255,0.7);
-  --card-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  --radius: 18px;
-  --transition: 400ms cubic-bezier(.22,.9,.27,1);
-}
-
-/* Reset */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(244,164,96,0.06), transparent 10%),
-    radial-gradient(900px 500px at 90% 90%, rgba(212,148,159,0.04), transparent 8%),
-    linear-gradient(135deg,#fff7f2 0%, #fff2ea 100%);
-  color: #5b3a3a;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px;
-}
-
-/* Page layout */
-.wrapper{
-  width:100%;
-  max-width:1100px;
-  position:relative;
-  display:flex;
-  gap:28px;
-  align-items:center;
-  justify-content:center;
-}
-
-/* Left: portada */
-.portada {
-  width:360px;
-  padding:32px;
-  border-radius:var(--radius);
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,250,248,0.85));
-  box-shadow:var(--card-shadow);
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  transform-origin:center;
-  transition:transform var(--transition);
-}
-.brand-heart{
-  font-family:"Playfair Display", serif;
-  font-size:62px;
-  color:var(--accent);
-  margin-bottom:10px;
-  transform-origin:center;
-  display:inline-block;
-  animation:heartbeat 1500ms ease-in-out infinite;
-}
-@keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.14)}
-}
-.portada h1{
-  font-family:"Playfair Display", serif;
-  font-size:28px;
-  color:var(--muted);
-  margin-bottom:8px;
-  letter-spacing:1px;
-}
-.portada .sub{color:var(--accent-2);font-weight:600;margin-bottom:10px}
-.portada .desc{font-size:14px;color:#7b5252;line-height:1.5;margin-bottom:18px}
-
-/* Nice start button */
-.btn-start{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  background:linear-gradient(135deg,var(--accent), #ffd07a);
-  border:none;
-  color:#6b3f3f;
-  padding:12px 18px;
-  font-weight:700;
-  border-radius:40px;
-  box-shadow:0 8px 18px rgba(244,164,96,0.18);
-  cursor:pointer;
-  transition:transform 220ms ease, box-shadow 220ms ease;
-}
-.btn-start:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 30px rgba(244,164,96,0.22)}
-.btn-start:active{transform:translateY(-1px)}
-
-/* Right: libro (flipbook style) */
-.book {
-  flex:1;
-  min-width:420px;
-  max-width:720px;
-  height:640px;
-  position:relative;
-  perspective:1400px;
-}
-.book-stage{
-  width:100%;
-  height:100%;
-  position:relative;
-  border-radius:20px;
-  overflow:visible;
-}
-
-/* Page base styles */
-.page{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255, 248, 246, 0.98));
-  border-radius:16px;
-  padding:34px;
-  box-shadow:var(--card-shadow);
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  transform-origin:left center;
-  transition:transform var(--transition), opacity var(--transition);
-  opacity:0;
-  pointer-events:none;
-  will-change:transform, opacity;
-}
-
-/* active page visible */
-.page.active{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateX(0) scale(1);
-  z-index:40;
-}
-
-/* enter/leave transitions */
-.page.enter-left{transform:translateX(-20%) rotateY(-10deg) scale(0.98);opacity:0}
-.page.enter-right{transform:translateX(20%) rotateY(10deg) scale(0.98);opacity:0}
-.page.show{transform:translateX(0) rotateY(0) scale(1);opacity:1}
-
-/* header styles inside page */
-.page .title{
-  font-family:"Playfair Display", serif;
-  font-size:26px;
-  color:var(--muted);
-  margin-bottom:6px;
-}
-.page .subtitle{color:var(--accent-2);font-size:16px;margin-bottom:6px}
-
-/* image container */
-.photo-wrap{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  max-height:420px;
-}
-.photo-wrap img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:12px;
-  border:3px solid rgba(212,148,159,0.12);
-  box-shadow:0 12px 40px rgba(212,148,159,0.06);
-  transform-origin:center;
-  transition:transform 600ms cubic-bezier(.2,.9,.2,1), filter 400ms;
-}
-.photo-wrap img.loaded{transform:scale(1);filter:brightness(1);opacity:1}
-
-/* text areas */
-.text-large{font-size:18px;line-height:1.8;color:#6e4545}
-.text-italic{font-style:italic;color:var(--accent-2);font-size:18px}
-.signature{font-family:"Playfair Display", serif;color:var(--muted);font-weight:700;font-size:18px;margin-top:18px}
-
-/* controls overlay */
-.controls{
-  position:absolute;
-  bottom:18px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:12px;
-  z-index:90;
-}
-.control-btn{
-  width:54px;height:54px;border-radius:50%;
-  border:none;background:linear-gradient(180deg,#fff,#fff6);
-  display:inline-grid;place-items:center;font-weight:700;
-  cursor:pointer;color:var(--accent-2);
-  box-shadow:0 8px 24px rgba(0,0,0,0.08);
-  transition:transform 180ms ease, box-shadow 180ms ease;
-}
-.control-btn:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.12)}
-.control-btn:disabled{opacity:0.45;cursor:not-allowed;transform:none;box-shadow:none}
-
-/* audio control */
-.audio-toggle{
-  position:absolute;
-  right:18px;
-  top:18px;
-  width:54px;height:54px;border-radius:50%;
-  display:grid;place-items:center;background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,250,248,0.9));
-  border:2px solid rgba(212,148,159,0.12);
-  box-shadow:0 8px 18px rgba(0,0,0,0.06);
-  cursor:pointer;
-}
-
-/* page counter & progress */
-.counter{
-  position:absolute;
-  right:18px;
-  bottom:18px;
-  background:var(--glass);
-  padding:8px 14px;border-radius:999px;border:1px solid rgba(212,148,159,0.12);
-  font-weight:700;color:var(--accent-2);
-  box-shadow:0 8px 20px rgba(212,148,159,0.05);
-}
-
-/* progress bar */
-.progress{
-  position:absolute;
-  left:18px;bottom:18px;width:240px;height:10px;background:rgba(0,0,0,0.05);
-  border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.6);
-}
-.progress > i{
-  display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;
-  transition:width var(--transition);
-}
-
-/* floating decoration: hearts */
-.floating{
-  position:fixed;left:0;top:0;pointer-events:none;z-index:30;width:100%;height:100%;
-}
-.heart{
-  position:absolute;font-size:22px;opacity:0.9;filter:drop-shadow(0 6px 18px rgba(212,148,159,0.18));
-  animation:floatUp linear forwards;
-}
-@keyframes floatUp{
-  0%{transform:translateY(0) scale(1);opacity:1}
-  100%{transform:translateY(-140vh) scale(1.4);opacity:0}
-}
-
-/* responsive */
-@media (max-width:900px){
-  .wrapper{flex-direction:column;gap:18px}
-  .portada{width:92%}
-  .book{width:92%;height:560px}
-}
-@media (prefers-reduced-motion:reduce){
-  .btn-start, .control-btn, .page, .photo-wrap img, .heart{transition:none;animation:none}
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,rgba(245,230,211,0.9),rgba(232,212,184,0.9)),url('cow-print-pattern-aesthetic-jpg-0bn2yblop9zb1lvn.jpg') center/cover no-repeat}
+body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,248,240,0.05);z-index:0;pointer-events:none}
+#portada{text-align:center;z-index:100;position:relative}
+h1{font-size:60px;margin-bottom:20px;color:#f4a460;letter-spacing:2px;font-weight:bold;text-shadow:2px 2px 4px rgba(0,0,0,0.2)}
+.subtitulo{font-size:28px;color:#d4949f;margin-bottom:15px;text-shadow:1px 1px 3px rgba(0,0,0,0.1)}
+.descripcion{font-size:18px;color:#d4949f;margin-bottom:30px;line-height:1.6;text-shadow:1px 1px 2px rgba(0,0,0,0.1)}
+#contenedor-libro{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:50}
+.pagina{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:85%;max-width:850px;height:80vh;background:rgba(255,248,240,0.98);border-radius:15px;padding:40px;text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+.foto-contenedor{flex:1;display:flex;justify-content:center;align-items:center;max-height:400px}
+.foto-contenedor img{max-width:100%;max-height:100%;border-radius:12px;border:2px solid #d4949f;box-shadow:0 0 30px rgba(255,192,203,0.5);object-fit:cover;animation:despliegue 0.8s cubic-bezier(0.2,0.9,0.2,1)}
+@keyframes despliegue{0%{transform:scale(0) rotateX(90deg);opacity:0}50%{opacity:1}100%{transform:scale(1) rotateX(0deg);opacity:1}}
+.frases-contenedor{margin-top:20px;min-height:120px;display:flex;flex-direction:column;justify-content:center}
+.frase-principal{font-size:20px;color:#d4949f;line-height:1.6;font-style:italic;margin-bottom:10px;min-height:60px}
+.frase-secundaria{font-size:18px;color:#f4a460;font-weight:bold;min-height:30px}
+.intro-titulo{font-size:40px;color:#f4a460;margin-bottom:30px;font-weight:bold}
+.intro-texto{font-size:18px;color:#d4949f;line-height:1.8;margin-bottom:30px;min-height:200px}
+.intro-firma{font-size:20px;color:#f4a460;font-style:italic;margin-top:30px;font-weight:bold}
+.bienvenida-titulo{font-size:38px;color:#f4a460;margin-bottom:20px;font-weight:bold}
+.bienvenida-subtitulo{font-size:28px;color:#d4949f}
+.mensaje-final{font-size:20px;color:#d4949f;line-height:1.8;min-height:300px}
+.controles{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:200}
+button{padding:12px 16px;font-size:18px;border:none;border-radius:50%;cursor:pointer;background:none;color:#dc143c;font-weight:bold;transition:all 0.2s ease;width:50px;height:50px;display:flex;justify-content:center;align-items:center}
+button:hover{transform:scale(1.15) translateY(-5px);filter:drop-shadow(0 0 12px rgba(220,20,60,0.6))}
+button:disabled{opacity:0.4;cursor:not-allowed}
+.contador{position:fixed;top:15px;right:15px;font-size:14px;color:#d4949f;background:rgba(255,248,240,0.85);padding:8px 18px;border-radius:50px;border:2px solid #d4949f;z-index:200;font-weight:bold}
+.corazon-inicio{font-size:50px;animation:latir 1.5s ease-in-out infinite;margin-bottom:15px}
+@keyframes latir{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.boton-inicio{padding:12px 40px;font-size:16px;background:linear-gradient(135deg,#f4a460,#ffd700);color:#8b5a5a;border:2px solid #d4949f;border-radius:50px;box-shadow:0 0 12px rgba(255,192,203,0.4)}
+.boton-inicio:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 0 20px rgba(255,192,203,0.6)}
+@keyframes subirRosa{0%{transform:translateY(0) rotateZ(0deg);opacity:0.8}100%{transform:translateY(-120vh) rotateZ(360deg);opacity:0}}
+.rosas{position:fixed;font-size:35px;pointer-events:none;z-index:250;animation:subirRosa 8s linear forwards}
+.vaquita{position:fixed;font-size:40px;pointer-events:none;z-index:5;animation:caminar 8s linear infinite}
+@keyframes caminar{0%{transform:translateX(-100px) scaleX(-1)}50%{transform:translateX(100px) scaleX(-1)}100%{transform:translateX(-100px) scaleX(-1)}}
+.control-audio{position:fixed;bottom:80px;right:20px;z-index:200;background:rgba(255,248,240,0.9);border:2px solid #d4949f;border-radius:50%;width:50px;height:50px;display:flex;justify-content:center;align-items:center}
+.control-audio:hover{transform:scale(1.1);box-shadow:0 0 20px rgba(255,192,203,0.6)}
 </style>
 </head>
 <body>
 
-<div class="wrapper" id="app">
-  <aside class="portada" aria-hidden="false">
-    <div class="brand-heart" aria-hidden="true">💕</div>
-    <h1>5 Años Juntos</h1>
-    <div class="sub">Mi Preciosa • Daylin</div>
-    <p class="desc">Cinco años contigo han sido los más hermosos. Este pequeño libro está hecho con todo mi corazón.</p>
-    <button class="btn-start" id="openBtn" aria-label="Abrir libro">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="transform:translateY(-1px)"><path d="M3 7a1 1 0 0 1 1-1h16" stroke="#6b3f3f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Abrir libro
-    </button>
-    <p style="font-size:13px;color:#7b5252;margin-top:12px">Presiona ← → o desliza para navegar • Toca 🔊 para música</p>
-  </aside>
-
-  <main class="book" role="application" aria-label="Libro de amor">
-    <div class="book-stage" id="bookStage" aria-live="polite">
-      <!-- páginas -->
-      <section class="page active" id="pag0" data-index="0" aria-hidden="false">
-        <div class="title">BIENVENIDA ✨</div>
-        <div class="subtitle">A nuestro libro de amor</div>
-        <div class="text-large">Daylin & Mario ❤️</div>
-        <div class="text-italic">Que lo nuestro dure para siempre. Te amo con todo mi corazón.</div>
-      </section>
-
-      <section class="page enter-right" id="pag1" data-index="1" aria-hidden="true">
-        <div class="title">💌 Una carta para ti</div>
-        <div id="intro-text" class="text-large" style="min-height:160px"></div>
-        <div class="signature">Con todo mi amor,<br>Mario ❤️</div>
-      </section>
-
-      <!-- Páginas con fotos (2..11) -->
-      <!-- Reemplaza src por las tuyas -->
-      <section class="page enter-right" id="pag2" data-index="2" aria-hidden="true">
-        <div class="title">Recuerdo 1</div>
-        <div class="photo-wrap"><img data-src="IMG-20250405-WA0028.jpg" alt="Foto 1"></div>
-        <div class="text-italic" id="frase2-pr"></div>
-        <div class="text-large" id="frase2-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag3" data-index="3" aria-hidden="true">
-        <div class="title">Recuerdo 2</div>
-        <div class="photo-wrap"><img data-src="IMG-20250412-WA0011.jpg" alt="Foto 2"></div>
-        <div class="text-italic" id="frase3-pr"></div>
-        <div class="text-large" id="frase3-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag4" data-index="4" aria-hidden="true">
-        <div class="title">Recuerdo 3</div>
-        <div class="photo-wrap"><img data-src="IMG-20250520-WA0007.jpg" alt="Foto 3"></div>
-        <div class="text-italic" id="frase4-pr"></div>
-        <div class="text-large" id="frase4-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag5" data-index="5" aria-hidden="true">
-        <div class="title">Recuerdo 4</div>
-        <div class="photo-wrap"><img data-src="IMG-20250720-WA0030.jpg" alt="Foto 4"></div>
-        <div class="text-italic" id="frase5-pr"></div>
-        <div class="text-large" id="frase5-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag6" data-index="6" aria-hidden="true">
-        <div class="title">Recuerdo 5</div>
-        <div class="photo-wrap"><img data-src="IMG-20250725-WA0026.jpg" alt="Foto 5"></div>
-        <div class="text-italic" id="frase6-pr"></div>
-        <div class="text-large" id="frase6-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag7" data-index="7" aria-hidden="true">
-        <div class="title">Recuerdo 6</div>
-        <div class="photo-wrap"><img data-src="IMG-20250824-WA0014.jpg" alt="Foto 6"></div>
-        <div class="text-italic" id="frase7-pr"></div>
-        <div class="text-large" id="frase7-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag8" data-index="8" aria-hidden="true">
-        <div class="title">Recuerdo 7</div>
-        <div class="photo-wrap"><img data-src="IMG-20250824-WA0016.jpg" alt="Foto 7"></div>
-        <div class="text-italic" id="frase8-pr"></div>
-        <div class="text-large" id="frase8-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag9" data-index="9" aria-hidden="true">
-        <div class="title">Recuerdo 8</div>
-        <div class="photo-wrap"><img data-src="IMG-20260102-WA0027.jpg" alt="Foto 8"></div>
-        <div class="text-italic" id="frase9-pr"></div>
-        <div class="text-large" id="frase9-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag10" data-index="10" aria-hidden="true">
-        <div class="title">Recuerdo 9</div>
-        <div class="photo-wrap"><img data-src="IMG-20260306-WA0050.jpg" alt="Foto 9"></div>
-        <div class="text-italic" id="frase10-pr"></div>
-        <div class="text-large" id="frase10-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag11" data-index="11" aria-hidden="true">
-        <div class="title">Recuerdo 10</div>
-        <div class="photo-wrap"><img data-src="IMG-20260403-WA0049.jpg" alt="Foto 10"></div>
-        <div class="text-italic" id="frase11-pr"></div>
-        <div class="text-large" id="frase11-sec"></div>
-      </section>
-
-      <section class="page enter-right" id="pag12" data-index="12" aria-hidden="true">
-        <div style="font-size:64px;line-height:1">💕</div>
-        <div class="text-large" id="finalMsg" style="min-height:240px"></div>
-      </section>
-
-    </div>
-
-    <!-- UI controls -->
-    <div class="controls" role="group" aria-label="Controles del libro">
-      <button class="control-btn" id="prevBtn" aria-label="Página anterior">◀</button>
-      <button class="control-btn" id="nextBtn" aria-label="Página siguiente">▶</button>
-      <button class="control-btn" id="closeBtn" aria-label="Cerrar libro" style="display:none">✕</button>
-    </div>
-
-    <div class="audio-toggle" id="audioBtn" title="Control de música" role="button" aria-pressed="false">🔊</div>
-    <div class="counter" id="counter">Página 1 / 13</div>
-    <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
-  </main>
-</div>
-
-<!-- floating hearts container -->
-<div class="floating" id="floatingContainer" aria-hidden="true"></div>
-
-<!-- audio (local file name — reemplaza con tu archivo) -->
-<audio id="musica" loop preload="none">
-  <source src="SebastianYatra-NoHayNadieMas.mp3" type="audio/mpeg">
+<audio id="musica" loop>
+  <source src="Sebastián Yatra - No hay nadie más  LETRA(MP3_160K).mp3" type="audio/mpeg">
 </audio>
 
+<div id="portada">
+  <div class="corazon-inicio">💕</div>
+  <h1>5 AÑOS JUNTOS</h1>
+  <div class="subtitulo">Mi Preciosa (Daylin)</div>
+  <div class="descripcion">Cinco años contigo han sido los más hermosos.<br>Este es un pequeño regalo lleno de amor para ti.</div>
+  <button class="boton-inicio" onclick="abrir()" title="Abrir el libro">Abrir💕</button>
+</div>
+
+<div id="contenedor-libro">
+  <div class="pagina" id="pag0">
+    <div class="bienvenida-titulo">BIENVENIDA✨</div>
+    <div class="bienvenida-subtitulo">A Nuestro Libro de Amor</div>
+    <div class="bienvenida-titulo">DAYLIN & MARIO❤️</div>
+     <div class="bienvenida-subtitulo">Que lo nuestro dure para siempre y sea para siempre te amo con el alma me encantas💕</div>
+  </div>
+
+  <div class="pagina" id="pag1">
+    <div class="intro-titulo">💌 Una Carta Para Ti 💌</div>
+    <div class="intro-texto" id="intro-dinamico"></div>
+    <div class="intro-firma">Con todo mi amor,<br> Mario❤️</div>
+  </div>
+
+  <div class="pagina" id="pag2"><div class="foto-contenedor"><img src="IMG-20250405-WA0028.jpg" loading="lazy" alt="Foto 1"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag2-principal"></div><div class="frase-secundaria" id="frase-pag2-secundaria"></div></div></div>
+  <div class="pagina" id="pag3"><div class="foto-contenedor"><img src="IMG-20250412-WA0011.jpg" loading="lazy" alt="Foto 2"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag3-principal"></div><div class="frase-secundaria" id="frase-pag3-secundaria"></div></div></div>
+  <div class="pagina" id="pag4"><div class="foto-contenedor"><img src="IMG-20250520-WA0007.jpg" loading="lazy" alt="Foto 3"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag4-principal"></div><div class="frase-secundaria" id="frase-pag4-secundaria"></div></div></div>
+  <div class="pagina" id="pag5"><div class="foto-contenedor"><img src="IMG-20250720-WA0030.jpg" loading="lazy" alt="Foto 4"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag5-principal"></div><div class="frase-secundaria" id="frase-pag5-secundaria"></div></div></div>
+  <div class="pagina" id="pag6"><div class="foto-contenedor"><img src="IMG-20250725-WA0026.jpg" loading="lazy" alt="Foto 5"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag6-principal"></div><div class="frase-secundaria" id="frase-pag6-secundaria"></div></div></div>
+  <div class="pagina" id="pag7"><div class="foto-contenedor"><img src="IMG-20250824-WA0014.jpg" loading="lazy" alt="Foto 6"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag7-principal"></div><div class="frase-secundaria" id="frase-pag7-secundaria"></div></div></div>
+  <div class="pagina" id="pag8"><div class="foto-contenedor"><img src="IMG-20250824-WA0016.jpg" loading="lazy" alt="Foto 7"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag8-principal"></div><div class="frase-secundaria" id="frase-pag8-secundaria"></div></div></div>
+  <div class="pagina" id="pag9"><div class="foto-contenedor"><img src="IMG-20260102-WA0027.jpg" loading="lazy" alt="Foto 8"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag9-principal"></div><div class="frase-secundaria" id="frase-pag9-secundaria"></div></div></div>
+  <div class="pagina" id="pag10"><div class="foto-contenedor"><img src="IMG-20260306-WA0050.jpg" loading="lazy" alt="Foto 9"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag10-principal"></div><div class="frase-secundaria" id="frase-pag10-secundaria"></div></div></div>
+  <div class="pagina" id="pag11"><div class="foto-contenedor"><img src="IMG-20260403-WA0049.jpg" loading="lazy" alt="Foto 10"></div><div class="frases-contenedor"><div class="frase-principal" id="frase-pag11-principal"></div><div class="frase-secundaria" id="frase-pag11-secundaria"></div></div></div>
+
+  <div class="pagina" id="pag12">
+    <div style="font-size:70px;margin-bottom:30px">💕</div>
+    <div class="mensaje-final" id="mensaje-final-dinamico"></div>
+  </div>
+</div>
+
+<div class="contador" id="contador"></div>
+<div class="controles">
+  <button id="btnAnterior" onclick="anterior()" title="Anterior">ant.❤️</button>
+  <button id="btnSiguiente" onclick="siguiente()" title="Siguiente">sig.❤️</button>
+  <button id="btnCerrar" onclick="cerrar()" style="display:none" title="Cerrar">cerrar❤️</button>
+</div>
+
+<div class="control-audio" id="audioBtn" onclick="toggleMusica()" title="Click para música">🔊</div>
+
 <script>
-/*
-  Mejoras JS:
-  - Navegación con animación suave
-  - Escritura tipo "typewriter" mejorada y respetando prefers-reduced-motion
-  - Precarga de imágenes y animación cuando cargan
-  - Efectos flotantes controlados (corazones)
-  - Soporta teclado y swipe
-  - Evita múltiples intervalos duplicados (usa referencias)
-*/
+let pag=0,total=13,musicaActiva=true,libroAbierto=false,vaquitasActivadas=true;
+const musica=document.getElementById('musica');
 
-const totalPages = 13;
-let page = 0;
-const bookStage = document.getElementById('bookStage');
-const pages = Array.from(document.querySelectorAll('.page'));
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const openBtn = document.getElementById('openBtn');
-const closeBtn = document.getElementById('closeBtn');
-const counter = document.getElementById('counter');
-const progressBar = document.getElementById('progressBar');
-const musica = document.getElementById('musica');
-const audioBtn = document.getElementById('audioBtn');
-const introTextEl = document.getElementById('intro-text');
-const finalMsgEl = document.getElementById('finalMsg');
-const floating = document.getElementById('floatingContainer');
-
-let floatingTimer = null;
-let rosesTimer = null;
-let swipeStartX = null;
-let bookOpen = false;
-
-const frases = {
+const frases={
   2:{principal:"Desde el primer momento que te ví, supe que eras el amor de mi vida.",secundaria:"Te amo infinitamente 💕"},
   3:{principal:"Cada día contigo es un regalo especial hermosa.",secundaria:"Eres mi niña bonita 🌹"},
   4:{principal:"Mi hermosa, mi niña... eres lo mejor que me ha pasado en la vida.",secundaria:"Me encantas preciosa 💖"},
@@ -442,204 +114,139 @@ const frases = {
   11:{principal:"5 años contigo y siento que fue ayer, me encantas mi amor.",secundaria:"Feliz aniversario, mi preciosa 💖"}
 };
 
-const mensajeFinal = `Daylin, hermosa, preciosa...
+const mensajeFinal=`Daylin, hermosa, preciosa...
 Estos 5 años contigo han sido los más hermosos de mi existencia.
 En cada momento contigo aprendo a amarte más, a valorarte más.
 Te amo infinitamente, eres mi amor, mi todo, mi razón de ser.
 Feliz aniversario, mi hermosa. 🌹
 Siempre tuyo con todo mi corazón ❤️`;
 
-/* Preload images and add loaded class */
-function preloadImages(){
-  const imgs = Array.from(document.querySelectorAll('img[data-src]'));
-  imgs.forEach(img=>{
-    const src = img.getAttribute('data-src');
-    const image = new Image();
-    image.src = src;
-    image.onload = ()=>{
-      img.src = src;
-      img.classList.add('loaded');
-    };
-    image.onerror = ()=>{ img.src = src; img.classList.add('loaded'); };
-  });
-}
-
-/* Simple typewriter that respects reduced motion */
-function typewriter(el, text, speed=40){
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    el.innerHTML = text.replace(/\n/g,'<br>');
-    return Promise.resolve();
-  }
-  el.innerHTML = '';
-  return new Promise(resolve=>{
-    let i=0;
-    const tick = ()=>{
-      if(i<text.length){
-        el.innerHTML += text[i] === '\n' ? '<br>' : text[i];
-        i++;
-        setTimeout(tick, speed);
-      } else resolve();
-    };
-    tick();
-  });
-}
-
-/* Update visible page with smooth classes */
-function showPage(idx, direction='right'){
-  // clamp
-  idx = Math.max(0, Math.min(totalPages-1, idx));
-  pages.forEach(p=>{
-    p.classList.remove('active','show','enter-left','enter-right');
-    p.setAttribute('aria-hidden','true');
-  });
-
-  const target = pages[idx];
-  // set enter classes for animation
-  pages.forEach((p,i)=>{
-    if(i < idx) p.classList.add('enter-left');
-    else if(i > idx) p.classList.add('enter-right');
-  });
-
-  // small delay to allow CSS to position then show
-  requestAnimationFrame(()=>{
-    target.classList.add('active','show');
-    target.setAttribute('aria-hidden','false');
-  });
-
-  // update counter & progress
-  counter.textContent = `Página ${idx+1} / ${totalPages}`;
-  progressBar.style.width = `${Math.round(((idx+1)/totalPages)*100)}%`;
-
-  // dynamic text behaviors
-  if(idx === 1){
-    typewriter(introTextEl, `Bienvenida a nuestro libro de amor, preciosa.\nEste es un pequeño detalle para ti, un regalo hecho con todo mi corazón.\nCada página representa los momentos más hermosos que hemos compartido.\n\nTe amo mi vida, te amo infinitamente 🌹.`, 40);
-  }
-
-  if(idx >=2 && idx <= 11){
-    const f = frases[idx];
-    if(f){
-      const pr = document.getElementById(`frase${idx}-pr`);
-      const sc = document.getElementById(`frase${idx}-sec`);
-      if(pr) typewriter(pr, f.principal, 45);
-      if(sc) setTimeout(()=>typewriter(sc, f.secundaria, 45), Math.max(400, f.principal.length*35));
+function escribirTexto(elementoId,texto,velocidad=60){
+  const d=document.getElementById(elementoId);
+  if(!d)return;
+  d.innerHTML='';
+  let i=0;
+  const e=()=>{
+    if(i<texto.length){
+      d.innerHTML+=texto[i]==='\n'?'<br>':texto[i];
+      i++;
+      setTimeout(e,velocidad);
     }
+  };
+  e();
+}
+
+function escribir(){
+  const t=`Bienvenida a nuestro libro de amor, preciosa.
+Este es un pequeño detalle para ti, un regalo hecho con todo mi corazón.
+Cada página representa los momentos más hermosos que hemos compartido.
+
+Te amo mi vida, te amo infinitamente🌹.`;
+  escribirTexto('intro-dinamico',t,80);
+}
+
+function escribirFrases(numeroPagina){
+  if(frases[numeroPagina]){
+    const p=frases[numeroPagina].principal;
+    const s=frases[numeroPagina].secundaria;
+    setTimeout(()=>escribirTexto('frase-pag'+numeroPagina+'-principal',p,60),500);
+    setTimeout(()=>escribirTexto('frase-pag'+numeroPagina+'-secundaria',s,60),p.length*60+1000);
   }
+}
 
-  if(idx === 12){
-    typewriter(finalMsgEl, mensajeFinal, 40);
+function mostrar(){
+  document.querySelectorAll('.pagina').forEach(p=>p.style.display='none');
+  document.getElementById('pag'+pag).style.display='flex';
+  document.getElementById('contador').textContent='Página '+(pag+1)+' de '+total;
+  document.getElementById('btnAnterior').disabled=pag===0;
+  document.getElementById('btnSiguiente').disabled=pag===total-1;
+  document.getElementById('btnAnterior').style.opacity=pag===0?'0.4':'1';
+  document.getElementById('btnSiguiente').style.opacity=pag===total-1?'0.4':'1';
+  
+  if(pag===1)setTimeout(escribir,100);
+  if(pag>=2 && pag<=11)escribirFrases(pag);
+  if(pag===12)setTimeout(()=>escribirTexto('mensaje-final-dinamico',mensajeFinal,80),500);
+  
+  if(pag>0 && vaquitasActivadas){
+    vaquitasActivadas=false;
   }
 }
 
-/* Navigation handlers */
-function nextPage(){ if(page < totalPages-1){ page++; showPage(page,'right'); } }
-function prevPage(){ if(page > 0){ page--; showPage(page,'left'); } }
-
-/* Floating hearts logic (controlled intervals, avoid duplicates) */
-function startFloating(){
-  if(floatingTimer) return;
-  floatingTimer = setInterval(()=>{
-    const h = document.createElement('div');
-    h.className = 'heart';
-    h.style.left = Math.random()*95 + 'vw';
-    h.style.fontSize = (14 + Math.random()*28) + 'px';
-    h.style.color = Math.random()>0.6 ? '#ffd7d7' : '#ffc0cb';
-    h.textContent = Math.random()>0.6 ? '🌹' : '💕';
-    floating.appendChild(h);
-    // set random animation duration
-    const dur = 7000 + Math.random()*6000;
-    h.style.animationDuration = dur + 'ms';
-    setTimeout(()=>h.remove(), dur+200);
-  }, 700);
+function abrir(){
+  document.getElementById('portada').style.display='none';
+  document.getElementById('contenedor-libro').style.display='block';
+  ['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='inline-block');
+  pag=0;
+  mostrar();
+  libroAbierto=true;
+  vaquitasActivadas=true;
+  
+  if(musicaActiva)musica.play();
+  
+  setInterval(()=>{
+    const r=document.createElement('div');
+    r.className='rosas';
+    r.innerHTML='🌹';
+    r.style.left=Math.random()*100+'vw';
+    r.style.top='100vh';
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(),8100);
+  },2500);
+  
+  setInterval(()=>{
+    if(pag===0 && vaquitasActivadas){
+      const v=document.createElement('div');
+      v.className='vaquita';
+      v.innerHTML='🐄';
+      v.style.left=Math.random()*100+'vw';
+      v.style.top=Math.random()*80+'vh';
+      v.style.animationDuration=(8+Math.random()*4)+'s';
+      document.body.appendChild(v);
+      setTimeout(()=>v.remove(),12000);
+    }
+  },3000);
 }
 
-/* Stop floating */
-function stopFloating(){
-  if(floatingTimer){ clearInterval(floatingTimer); floatingTimer = null; }
-}
-
-/* Open/close book */
-function openBook(){
-  document.querySelector('.portada').style.transform = 'scale(.98) translateY(6px)';
-  document.getElementById('openBtn').disabled = true;
-  document.getElementById('closeBtn').style.display = 'inline-grid';
-  bookOpen = true;
-  showPage(0);
-  startFloating();
-  preloadImages();
-  // try play music on user gesture
-  try{ if(musica.paused) musica.play().catch(()=>{}); }
-  catch(e){}
-}
-function closeBook(){
-  document.querySelector('.portada').style.transform = '';
-  document.getElementById('openBtn').disabled = false;
-  document.getElementById('closeBtn').style.display = 'none';
-  bookOpen = false;
-  stopFloating();
-  // pause music
-  try{ musica.pause(); }
-  catch(e){}
-}
-
-/* keyboard and swipe */
-document.addEventListener('keydown', (e)=>{
-  if(!bookOpen) return;
-  if(e.key === 'ArrowRight') nextPage();
-  if(e.key === 'ArrowLeft') prevPage();
-  if(e.key === 'Escape') { closeBook(); }
-});
-
-bookStage.addEventListener('touchstart', (e)=>{ swipeStartX = e.touches[0].clientX; }, {passive:true});
-bookStage.addEventListener('touchend', (e)=>{
-  if(swipeStartX === null) return;
-  const dx = e.changedTouches[0].clientX - swipeStartX;
-  if(Math.abs(dx) > 40){
-    if(dx < 0) nextPage();
-    else prevPage();
+function siguiente(){
+  if(pag<total-1){
+    pag++;
+    mostrar();
   }
-  swipeStartX = null;
-});
+}
 
-/* button events */
-openBtn.addEventListener('click', openBook);
-nextBtn.addEventListener('click', nextPage);
-prevBtn.addEventListener('click', prevPage);
-closeBtn.addEventListener('click', closeBook);
+function anterior(){
+  if(pag>0){
+    pag--;
+    mostrar();
+  }
+}
 
-/* audio control */
-let audioOn = false;
-audioBtn.addEventListener('click', ()=>{
-  audioOn = !audioOn;
-  audioBtn.setAttribute('aria-pressed', String(audioOn));
-  if(audioOn){
-    musica.play().catch(()=>{ /* autoplay may fail until user interacts */});
-    audioBtn.textContent = '🔊';
-  } else {
+function cerrar(){
+  document.getElementById('portada').style.display='block';
+  document.getElementById('contenedor-libro').style.display='none';
+  ['btnAnterior','btnSiguiente','btnCerrar'].forEach(id=>document.getElementById(id).style.display='none');
+  musica.pause();
+  libroAbierto=false;
+}
+
+function toggleMusica(){
+  musicaActiva=!musicaActiva;
+  if(musicaActiva){
+    musica.play();
+    document.getElementById('audioBtn').innerHTML='🔊';
+  }else{
     musica.pause();
-    audioBtn.textContent = '🔇';
+    document.getElementById('audioBtn').innerHTML='🔇';
+  }
+}
+
+document.addEventListener('keydown',e=>{
+  if(libroAbierto){
+    if(e.key==='ArrowLeft')anterior();
+    if(e.key==='ArrowRight')siguiente();
   }
 });
-
-/* Initial rendering */
-showPage(0);
-/* Pre-fill phrases for static pages (so they are available for copy or SEO if JS disabled) */
-Object.keys(frases).forEach(k=>{
-  const p = document.getElementById(`frase${k}-pr`);
-  const s = document.getElementById(`frase${k}-sec`);
-  if(p) p.textContent = frases[k].principal;
-  if(s) s.textContent = frases[k].secundaria;
-});
-
-/* Make sure progress bar matches initial */
-progressBar.style.width = `${Math.round(((1)/totalPages)*100)}%`;
-
-/* Accessibility: focus management for controls */
-openBtn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') openBook(); });
-nextBtn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') nextPage(); });
-prevBtn.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') prevPage(); });
-
-/* Clean up when leaving page (optional in single page) */
-window.addEventListener('beforeunload', ()=>{ stopFloating(); });
 </script>
+
 </body>
 </html>
